@@ -1,0 +1,8 @@
+2024-06-09 10:00:36 DEBUG TelegramBot:26 - Yo
+2024-06-09 10:08:45 DEBUG TelegramBot:29 - на
+2024-06-09 10:08:46 ERROR TelegramBot:42 - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Unable to deserialize response
+2024-06-09 10:20:45 DEBUG TelegramBot:25 - Алёна
+2024-06-09 19:45:09 DEBUG UpdateProducerImplementation:14 - Алёна
+2024-06-09 19:46:06 DEBUG UpdateProducerImplementation:14 - Aga
+2024-06-09 19:46:31 DEBUG UpdateProducerImplementation:14 - To
+2024-06-09 19:47:58 DEBUG UpdateProducerImplementation:14 - 
