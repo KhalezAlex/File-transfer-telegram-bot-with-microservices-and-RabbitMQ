@@ -20,7 +20,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Getter
     @Value("${bot.token}")
     private String botToken;
-    private final UpdateController updateController;
+    private final UpdateController  updateController;
 
     public TelegramBot(UpdateController updateController) {
         this.updateController = updateController;

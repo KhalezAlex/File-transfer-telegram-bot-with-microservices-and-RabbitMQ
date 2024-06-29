@@ -1,0 +1,19 @@
+server:
+  port: 8000
+
+bot:
+  username: Proxodimiec_bot
+  token: 7268790759:AAGWm_KF-JJHrK2Y1bW-9bNh3C2FL9A38_g
+
+#Этот конфиг можно не описывать, если приложение и RabbitMQ запускаются на локальной машине.
+#Иначе надо прописывать.
+#Сделано на будущее
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: klozevitz
+    password: ItsMyLife29101012
+#
+
+#debug: true

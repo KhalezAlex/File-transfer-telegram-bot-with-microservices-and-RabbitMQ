@@ -1,4 +1,4 @@
-package org.klozevitz.sevice.interfaces;
+package org.klozevitz.service.interfaces;
 
 import org.telegram.telegrambots.meta.api.objects.Update;
 

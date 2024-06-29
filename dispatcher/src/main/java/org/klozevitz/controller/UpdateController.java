@@ -2,7 +2,7 @@ package org.klozevitz.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import org.klozevitz.sevice.interfaces.UpdateProducer;
+import org.klozevitz.service.interfaces.UpdateProducer;
 import org.klozevitz.util.MessageUtil;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -34,7 +34,7 @@ public class UpdateController {
         } else {
             log.error("Unsupported received message type " + update);
         }
-    }
+      }
 
     private void distributeMessageByType(Update update) {
         Message message = update.getMessage();
@@ -61,7 +61,7 @@ public class UpdateController {
         setView(sendMessage);
     }
 
-    private void setView(SendMessage sendMessage) {
+    public void setView(SendMessage sendMessage) {
         telegramBot.sendAnswer(sendMessage);
     }
 

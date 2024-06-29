@@ -1,0 +1,15 @@
+server:
+  port: 8001
+
+#Этот конфиг можно не описывать, если приложение и RabbitMQ запускаются на локальной машине.
+#Иначе надо прописывать.
+#Сделано на будущее
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: klozevitz
+    password: ItsMyLife29101012
+#
+
+#debug: true
