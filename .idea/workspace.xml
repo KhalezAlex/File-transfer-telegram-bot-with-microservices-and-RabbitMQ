@@ -4,31 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="Бот для обмена документами с бд">
-      <change afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/configuration/RabbitMqConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/service/implementations/AnswerConsumerImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dispatcher/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/node.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/NodeApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/configuration/RabbitMqConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ConsumerServiceImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ProducerServiceImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/ConsumerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/ProducerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) Диспетчер сообщений&#10;2) Нода для бизнес-логики&#10;3) Интеграция с RabbitMQ">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/dao/repositories/RawDataRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/entity/RawData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/MainService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatcher/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/TelegramBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/TelegramBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/UpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/sevice/implementations/UpdateProducerImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/service/implementations/UpdateProducerImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/sevice/interfaces/AnswerConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/service/interfaces/AnswerConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/sevice/interfaces/UpdateProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/service/interfaces/UpdateProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/dispatcher.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/dispatcher.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/node/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ConsumerServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ConsumerServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +60,11 @@
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "spring.configuration.checksum": "88d80b2cd970564d2ff87ae63dc2ba13"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -89,7 +79,7 @@
       <recent name="org.klozevitz" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.DispatcherApp">
+  <component name="RunManager" selected="Spring Boot.NodeApp">
     <configuration name="DispatcherApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="dispatcher" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.klozevitz.DispatcherApp" />
@@ -118,8 +108,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.DispatcherApp" />
         <item itemvalue="Spring Boot.NodeApp" />
+        <item itemvalue="Spring Boot.DispatcherApp" />
       </list>
     </recent_temporary>
   </component>
@@ -135,7 +125,7 @@
       <workItem from="1717992400674" duration="6313000" />
       <workItem from="1719234881269" duration="4154000" />
       <workItem from="1719495225243" duration="2117000" />
-      <workItem from="1719568338137" duration="8223000" />
+      <workItem from="1719568338137" duration="14878000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -144,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1718008292195</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1) Диспетчер сообщений&#10;2) Нода для бизнес-логики&#10;3) Интеграция с RabbitMQ">
+      <created>1719676488231</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719676488231</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,14 +161,15 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Бот для обмена документами с бд" />
-    <option name="LAST_COMMIT_MESSAGE" value="Бот для обмена документами с бд" />
+    <MESSAGE value="1) Диспетчер сообщений&#10;2) Нода для бизнес-логики&#10;3) Интеграция с RabbitMQ" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) Диспетчер сообщений&#10;2) Нода для бизнес-логики&#10;3) Интеграция с RabbitMQ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ConsumerServiceImplementation.java</url>
-          <line>24</line>
+          <line>22</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -10,6 +10,12 @@ spring:
     port: 5672
     username: klozevitz
     password: ItsMyLife29101012
+  datasource:
+    url: jdbc:postgresql://localhost:6543/tg_bot_test
+    username: klozevitz
+    password: ItsMyLife29101012
+  jpa:
+    generate-ddl: true
 #
 
 #debug: true
