@@ -1,20 +1,25 @@
 package org.klozevitz.entity;
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import javax.persistence.*;
 
-@Data
-@Builder
+/**
+ * @EqualsAndHashCode для нормального сравнения сущностей по equals не хватает
+ * исключения из сравнения айдишника, чтобы сущность из базы
+ * была эквивалентна (но не равна) сущности не из базы
+ * */
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(exclude = "id")
+@Builder
 @Entity
 @Table(name = "raw_data")
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)

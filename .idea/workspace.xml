@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) Диспетчер сообщений&#10;2) Нода для бизнес-логики&#10;3) Интеграция с RabbitMQ">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/dao/repositories/RawDataRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/entity/RawData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/MainService.java" afterDir="false" />
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) Интеграция с Postgresql&#10;2) Сохранение сообщений в виде jsonb в базу данных&#10;3) Рефакторинг">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/node/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ConsumerServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ConsumerServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/UpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/entity/RawData.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/entity/RawData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +53,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "spring.configuration.checksum": "88d80b2cd970564d2ff87ae63dc2ba13"
+    "spring.configuration.checksum": "ed1b427e7700ba2478264b769293a1e1"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -125,7 +119,8 @@
       <workItem from="1717992400674" duration="6313000" />
       <workItem from="1719234881269" duration="4154000" />
       <workItem from="1719495225243" duration="2117000" />
-      <workItem from="1719568338137" duration="14878000" />
+      <workItem from="1719568338137" duration="15275000" />
+      <workItem from="1719726246347" duration="1060000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -141,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719676488231</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1) Интеграция с Postgresql&#10;2) Сохранение сообщений в виде jsonb в базу данных&#10;3) Рефакторинг">
+      <created>1719689625896</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719689625896</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +164,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Бот для обмена документами с бд" />
     <MESSAGE value="1) Диспетчер сообщений&#10;2) Нода для бизнес-логики&#10;3) Интеграция с RabbitMQ" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) Диспетчер сообщений&#10;2) Нода для бизнес-логики&#10;3) Интеграция с RabbitMQ" />
+    <MESSAGE value="1) Интеграция с Postgresql&#10;2) Сохранение сообщений в виде jsonb в базу данных&#10;3) Рефакторинг" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) Интеграция с Postgresql&#10;2) Сохранение сообщений в виде jsonb в базу данных&#10;3) Рефакторинг" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
