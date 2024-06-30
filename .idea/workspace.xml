@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) Интеграция с Postgresql&#10;2) Сохранение сообщений в виде jsonb в базу данных&#10;3) Рефакторинг">
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) Добавлены пользователи, сохранение в бд при первом обращении к чату">
+      <change afterPath="$PROJECT_DIR$/commonJPA/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/dao/ApplicationUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/ApplicationUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/enums/AppUserState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/UpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/entity/RawData.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/entity/RawData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/node/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -27,6 +35,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2hboOwXgIhr7IsGMIsgbFniUapf" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -69,11 +84,12 @@
       <recent name="$PROJECT_DIR$/dispatcher/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.klozevitz.entity.enums" />
       <recent name="org.klozevitz.configuration" />
       <recent name="org.klozevitz" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.NodeApp">
+  <component name="RunManager" selected="Spring Boot.DispatcherApp">
     <configuration name="DispatcherApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="dispatcher" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.klozevitz.DispatcherApp" />
@@ -102,8 +118,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.NodeApp" />
         <item itemvalue="Spring Boot.DispatcherApp" />
+        <item itemvalue="Spring Boot.NodeApp" />
       </list>
     </recent_temporary>
   </component>
@@ -120,7 +136,7 @@
       <workItem from="1719234881269" duration="4154000" />
       <workItem from="1719495225243" duration="2117000" />
       <workItem from="1719568338137" duration="15275000" />
-      <workItem from="1719726246347" duration="1060000" />
+      <workItem from="1719726246347" duration="5305000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -143,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719689625896</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1) Рефакторинг">
+      <created>1719732081700</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719732081700</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +188,9 @@
     <MESSAGE value="Бот для обмена документами с бд" />
     <MESSAGE value="1) Диспетчер сообщений&#10;2) Нода для бизнес-логики&#10;3) Интеграция с RabbitMQ" />
     <MESSAGE value="1) Интеграция с Postgresql&#10;2) Сохранение сообщений в виде jsonb в базу данных&#10;3) Рефакторинг" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) Интеграция с Postgresql&#10;2) Сохранение сообщений в виде jsonb в базу данных&#10;3) Рефакторинг" />
+    <MESSAGE value="1) Рефакторинг" />
+    <MESSAGE value="1) Добавлены пользователи, сохранение в бд при первом обращении к чату" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) Добавлены пользователи, сохранение в бд при первом обращении к чату" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

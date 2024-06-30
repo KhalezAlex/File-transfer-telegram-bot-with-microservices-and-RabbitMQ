@@ -16,17 +16,15 @@
         <maven.compiler.target>11</maven.compiler.target>
         <postgresql.version>42.2.18</postgresql.version>
         <hibernate-types-52.version>2.2.2</hibernate-types-52.version>
+        <commonJPA.version>1.0-SNAPSHOT</commonJPA.version>
+        <commonRabbitMq.version>1.0-SNAPSHOT</commonRabbitMq.version>
     </properties>
 
     <dependencies>
+<!--        базовые-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
         <dependency>
@@ -35,12 +33,19 @@
             <version>${telegrambot.starter.version}</version>
         </dependency>
 
+<!--        очереди-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.klozevitz</groupId>
             <artifactId>commonRabbitMQ</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${commonRabbitMq.version}</version>
         </dependency>
 
+<!--        данные-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -50,6 +55,12 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.klozevitz</groupId>
+            <artifactId>commonJPA</artifactId>
+            <version>${commonJPA.version}</version>
         </dependency>
 
 <!--        зависимость, позволяющая сохранять в бд данные в формате json-->
