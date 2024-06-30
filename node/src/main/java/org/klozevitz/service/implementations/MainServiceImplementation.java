@@ -9,7 +9,6 @@ import org.klozevitz.service.interfaces.MainService;
 import org.klozevitz.service.interfaces.ProducerService;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 
@@ -22,6 +21,11 @@ public class MainServiceImplementation implements MainService {
     private final ApplicationUserRepository applicationUserRepository;
     private final ProducerService producerService;
 
+    /**
+     * 1) Сохранение сообщения в базу
+     * 2) Формирование ответа
+     * 3) Отправка на обработку в очередь ответов
+     * */
     @Override
     public void processTextMessage(Update update) {
         saveRawData(update);
@@ -32,10 +36,15 @@ public class MainServiceImplementation implements MainService {
                         .getFrom()
         );
 
-        Message message = update.getMessage();
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(message.getChatId().toString());
+        sendMessage.setChatId(
+                update
+                        .getMessage()
+                        .getChatId()
+                        .toString()
+        );
         sendMessage.setText("Hello from NODE");
+
         producerService.produceAnswer(sendMessage);
     }
 
