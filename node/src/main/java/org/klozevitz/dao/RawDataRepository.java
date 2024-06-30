@@ -1,4 +1,4 @@
-package org.klozevitz.dao.repositories;
+package org.klozevitz.dao;
 
 import org.klozevitz.entity.RawData;
 import org.springframework.data.jpa.repository.JpaRepository;

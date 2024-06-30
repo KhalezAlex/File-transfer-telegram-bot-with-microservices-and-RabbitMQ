@@ -18,4 +18,12 @@ spring:
     generate-ddl: true
 #
 
+fileService:
+  token: 7268790759:AAGWm_KF-JJHrK2Y1bW-9bNh3C2FL9A38_g
+  service:
+    file_info:
+      url: https://api.telegram.org/bot{token}/getFile?file_id={fileId}
+    file_storage:
+      url: https://api.telegram.org/file/bot{token}/{filePath}
+
 #debug: true

@@ -3,10 +3,14 @@ package org.klozevitz.service.implementations;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.klozevitz.dao.ApplicationUserRepository;
-import org.klozevitz.dao.repositories.RawDataRepository;
+import org.klozevitz.dao.RawDataRepository;
+import org.klozevitz.entity.ApplicationDocument;
 import org.klozevitz.entity.ApplicationUser;
 import org.klozevitz.entity.RawData;
 import org.klozevitz.entity.enums.AppUserState;
+import org.klozevitz.exceptions.UploadFileException;
+import org.klozevitz.service.enums.ServiceCommand;
+import org.klozevitz.service.interfaces.FileService;
 import org.klozevitz.service.interfaces.MainService;
 import org.klozevitz.service.interfaces.ProducerService;
 import org.springframework.stereotype.Service;
@@ -16,7 +20,7 @@ import org.telegram.telegrambots.meta.api.objects.User;
 
 import static org.klozevitz.entity.enums.AppUserState.BASIC_STATE;
 import static org.klozevitz.entity.enums.AppUserState.WAIT_FOR_EMAIL_STATE;
-import static org.klozevitz.service.enums.ServiceCommands.*;
+import static org.klozevitz.service.enums.ServiceCommand.*;
 
 @Log4j
 @Service
@@ -25,6 +29,7 @@ public class MainServiceImplementation implements MainService {
     private final RawDataRepository rawDataRepository;
     private final ApplicationUserRepository applicationUserRepository;
     private final ProducerService producerService;
+    private final FileService fileService;
 
     /**
      * 1) Сохранение сообщения в базу
@@ -42,13 +47,14 @@ public class MainServiceImplementation implements MainService {
 
         ApplicationUser applicationUser = findOrSaveApplicationUser(update);
         AppUserState userState = applicationUser.getState();
-        String text = update.getMessage().getText();
+        String command = update.getMessage().getText();
         String output = "";
-        
-        if (CANCEL.equals(text)) {
+
+        ServiceCommand serviceCommand = ServiceCommand.fromValue(command);
+        if (CANCEL.equals(serviceCommand)) {
             output = cancelProcess(applicationUser);
         } else if (BASIC_STATE.equals(userState)) {
-            output = processServiceCommand(applicationUser, text);
+            output = processServiceCommand(applicationUser, command);
         } else if (WAIT_FOR_EMAIL_STATE.equals(userState)) {
             //TODO добавить обработку мейла
         } else {
@@ -66,14 +72,20 @@ public class MainServiceImplementation implements MainService {
 
         ApplicationUser applicationUser = findOrSaveApplicationUser(update);
         Long chatId = update.getMessage().getChatId();
-
         if (isNotAllowedToSendContent(chatId, applicationUser)) {
             return;
         }
-
-        //TODO добавить сохранение документа
-        String answer = "Докумен успешно загружен! Ссылка для скачивания: https://test.ru/get-doc/777";
-        sendAnswer(answer, chatId);
+        //TODO проверить работоспособность с одной строкой - message и отправкой сообщения в блоке finally
+        try {
+            ApplicationDocument appDoc = fileService.processDoc(update.getMessage());
+            //TODO добавить генерацию ссылки для скачивания документа
+            String answer = "Докумен успешно загружен! Ссылка для скачивания: https://test.ru/get-doc/777";
+            sendAnswer(answer, chatId);
+        } catch (UploadFileException e) {
+            log.error(e);
+            String error = "Загрузка файла не удалась... Повторите попытку позже.";
+            sendAnswer(error, chatId);
+        }
     }
 
     @Override
@@ -114,13 +126,15 @@ public class MainServiceImplementation implements MainService {
         producerService.produceAnswer(sendMessage);
     }
 
+    //TODO проверить на эквивалентность- все работает, но идея, почему-то, ругается
     private String processServiceCommand(ApplicationUser applicationUser, String command) {
-        if (REGISTRATION.equals(command)) {
+        ServiceCommand serviceCommand = ServiceCommand.fromValue(command);
+        if (REGISTRATION.equals(serviceCommand)) {
             //TODO добавить регистрацию
             return "Временно не доступно!";
-        } else if (HELP.equals(command)) {
+        } else if (HELP.equals(serviceCommand)) {
             return help();
-        } else if (START.equals(command)) {
+        } else if (START.equals(serviceCommand)) {
             return "Здравствуйте! \nЧтобы посмотреть список доступных команд, введите \"/help\"";
         } else {
             return "Неизвестная команда! \nЧтобы посмотреть список доступных команд, введите \"/help\"";
