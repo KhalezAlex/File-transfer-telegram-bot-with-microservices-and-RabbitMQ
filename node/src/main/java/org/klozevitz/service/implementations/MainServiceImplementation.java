@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j;
 import org.klozevitz.dao.ApplicationUserRepository;
 import org.klozevitz.dao.RawDataRepository;
 import org.klozevitz.entity.ApplicationDocument;
+import org.klozevitz.entity.ApplicationPhoto;
 import org.klozevitz.entity.ApplicationUser;
 import org.klozevitz.entity.RawData;
 import org.klozevitz.entity.enums.AppUserState;
@@ -17,6 +18,8 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
+
+import java.io.IOException;
 
 import static org.klozevitz.entity.enums.AppUserState.BASIC_STATE;
 import static org.klozevitz.entity.enums.AppUserState.WAIT_FOR_EMAIL_STATE;
@@ -75,16 +78,17 @@ public class MainServiceImplementation implements MainService {
         if (isNotAllowedToSendContent(chatId, applicationUser)) {
             return;
         }
-        //TODO проверить работоспособность с одной строкой - message и отправкой сообщения в блоке finally
+
+        String message = null;
         try {
             ApplicationDocument appDoc = fileService.processDoc(update.getMessage());
             //TODO добавить генерацию ссылки для скачивания документа
-            String answer = "Докумен успешно загружен! Ссылка для скачивания: https://test.ru/get-doc/777";
-            sendAnswer(answer, chatId);
+            message = "Докумен успешно загружен! Ссылка для скачивания: https://test.ru/get-doc/777";
         } catch (UploadFileException e) {
             log.error(e);
-            String error = "Загрузка файла не удалась... Повторите попытку позже.";
-            sendAnswer(error, chatId);
+            message = "Загрузка файла не удалась... Повторите попытку позже.";
+        } finally {
+            sendAnswer(message, chatId);
         }
     }
 
@@ -94,14 +98,20 @@ public class MainServiceImplementation implements MainService {
 
         ApplicationUser applicationUser = findOrSaveApplicationUser(update);
         Long chatId = update.getMessage().getChatId();
-
         if (isNotAllowedToSendContent(chatId, applicationUser)) {
             return;
         }
 
-        //TODO добавить сохранение фото
-        String answer = "Фото успешно загружено! Ссылка для скачивания: https://test.ru/get-photo/777";
-        sendAnswer(answer, chatId);
+        try {
+            ApplicationPhoto appPhoto = fileService.processPhoto(update.getMessage());
+            //TODO добавить генерацию ссылки для скачивания фото
+            String answer = "Фото успешно загружено! Ссылка для скачивания: https://test.ru/get-photo/777";
+            sendAnswer(answer, chatId);
+        } catch (UploadFileException e) {
+            log.error(e);
+            String error = "К сожалению, загрузка фото не удалась. Повторите попытку позже.";
+            sendAnswer(error, chatId);
+        }
     }
 
     private boolean isNotAllowedToSendContent(Long chatId, ApplicationUser applicationUser) {
@@ -126,7 +136,6 @@ public class MainServiceImplementation implements MainService {
         producerService.produceAnswer(sendMessage);
     }
 
-    //TODO проверить на эквивалентность- все работает, но идея, почему-то, ругается
     private String processServiceCommand(ApplicationUser applicationUser, String command) {
         ServiceCommand serviceCommand = ServiceCommand.fromValue(command);
         if (REGISTRATION.equals(serviceCommand)) {
