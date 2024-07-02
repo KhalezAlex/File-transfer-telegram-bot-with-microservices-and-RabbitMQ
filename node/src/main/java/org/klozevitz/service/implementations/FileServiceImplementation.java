@@ -63,6 +63,7 @@ public class FileServiceImplementation implements FileService {
     @Override
     public ApplicationPhoto processPhoto(Message telegramMessage) {
         //TODO обработать возможность сохранения списка фото
+        // видимо, придется писать цикл сохранения
         PhotoSize telegramPhoto = telegramMessage.getPhoto().get(0);
         String fileId = telegramPhoto.getFileId();
         ResponseEntity<String> response = getFilePath(fileId);

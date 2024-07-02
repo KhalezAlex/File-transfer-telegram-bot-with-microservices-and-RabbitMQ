@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) Добавлена загрузка файлов из бота&#10;2) Добавлена возможность сохранения файлов в бд">
-      <change afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/dao/ApplicationPhotoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/ApplicationPhoto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/dispatcher.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/dispatcher.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/node.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/node.log" afterDir="false" />
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) Добавлена загрузка фото из бота">
       <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/FileService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +137,7 @@
       <workItem from="1719568338137" duration="15275000" />
       <workItem from="1719726246347" duration="22897000" />
       <workItem from="1719822791527" duration="2806000" />
-      <workItem from="1719842050753" duration="641000" />
+      <workItem from="1719842050753" duration="1247000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -202,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719761112263</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="1) Добавлена загрузка фото из бота">
+      <created>1719844322023</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719844322023</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +228,8 @@
     <MESSAGE value="1) Рефакторинг" />
     <MESSAGE value="1) Добавлены базовые команды" />
     <MESSAGE value="1) Добавлена загрузка файлов из бота&#10;2) Добавлена возможность сохранения файлов в бд" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) Добавлена загрузка файлов из бота&#10;2) Добавлена возможность сохранения файлов в бд" />
+    <MESSAGE value="1) Добавлена загрузка фото из бота" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) Добавлена загрузка фото из бота" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
