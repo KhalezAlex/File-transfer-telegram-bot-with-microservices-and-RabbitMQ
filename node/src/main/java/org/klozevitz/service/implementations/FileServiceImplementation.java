@@ -57,19 +57,15 @@ public class FileServiceImplementation implements FileService {
         }
     }
 
-    /**
-     * фотографий в особщении может быть много. здесь делаем вид, что присылают по одной
-     * */
     @Override
     public ApplicationPhoto processPhoto(Message telegramMessage) {
-        //TODO обработать возможность сохранения списка фото
-        // видимо, придется писать цикл сохранения
-        PhotoSize telegramPhoto = telegramMessage.getPhoto().get(0);
+        int photoSizeAmount = telegramMessage.getPhoto().size();
+        int photoIndex = photoSizeAmount > 0 ? telegramMessage.getPhoto().size() - 1 : 0;
+        PhotoSize telegramPhoto = telegramMessage.getPhoto().get(photoIndex);
         String fileId = telegramPhoto.getFileId();
         ResponseEntity<String> response = getFilePath(fileId);
         if (response.getStatusCode() == HttpStatus.OK) {
             BinaryContent persistentBinaryContent = getPersistentBinaryContent(response);
-
             ApplicationPhoto transientAppPhoto = buildTransientAppPhoto(telegramPhoto, persistentBinaryContent);
             return appPhotoRepo.save(transientAppPhoto);
         } else {
