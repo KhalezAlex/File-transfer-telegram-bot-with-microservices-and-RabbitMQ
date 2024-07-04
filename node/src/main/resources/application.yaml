@@ -26,4 +26,9 @@ fileService:
     file_storage:
       url: https://api.telegram.org/file/bot{token}/{filePath}
 
+link:
+  address: 127.0.0.1:8003
+
+salt: Pdlkfsj4l5k2Y324kjFj23kAlj234sdfkUlk5Padas6898s
+
 #debug: true

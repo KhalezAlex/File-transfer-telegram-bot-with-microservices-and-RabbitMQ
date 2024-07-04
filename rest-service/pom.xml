@@ -46,5 +46,12 @@
             <artifactId>postgresql</artifactId>
             <version>${postgres.version}</version>
         </dependency>
+
+<!--        утилитарные зависимости-->
+        <dependency>
+            <groupId>org.klozevitz</groupId>
+            <artifactId>commonUtils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
