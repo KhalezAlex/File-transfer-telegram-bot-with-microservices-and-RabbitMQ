@@ -2097,3 +2097,5 @@
 2024-07-01 16:58:01 DEBUG ConsumerServiceImplementation:23 - NODE: text message received
 2024-07-04 19:40:04 DEBUG ConsumerServiceImplementation:30 - NODE: document message received
 2024-07-04 19:41:28 DEBUG ConsumerServiceImplementation:37 - NODE: photo message received
+2024-07-04 22:19:35 DEBUG ConsumerServiceImplementation:37 - NODE: photo message received
+2024-07-04 22:19:55 DEBUG ConsumerServiceImplementation:30 - NODE: document message received

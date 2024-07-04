@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * Не понадобились бины с названием очередей, но, при этом, MessageConverter остался
  * */
 @Configuration
-public class RabbitMqConfiguration {
+public class RabbitMQConfiguration {
     @Bean
     public MessageConverter jsonMessageConverter() {
         return new Jackson2JsonMessageConverter();

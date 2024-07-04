@@ -3,6 +3,7 @@ package org.klozevitz.service.implementations;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.apache.commons.io.FileUtils;
+import org.klozevitz.CryptoTool;
 import org.klozevitz.dao.ApplicationDocumentRepository;
 import org.klozevitz.dao.ApplicationPhotoRepository;
 import org.klozevitz.entity.ApplicationDocument;
@@ -21,18 +22,23 @@ import java.io.IOException;
 public class FileServiceImplementation implements FileService {
     private final ApplicationDocumentRepository appDocRepo;
     private final ApplicationPhotoRepository appPhotoRepo;
+    private final CryptoTool cryptoTool;
 
     @Override
-    public ApplicationDocument getDocument(String docId) {
-        //TODO добавить дешифрование хеш-строки
-        Long id = Long.parseLong(docId);
+    public ApplicationDocument getDocument(String hash) {
+        Long id = cryptoTool.idOf(hash);
+        if (id == null) {
+            return null;
+        }
         return appDocRepo.findById(id).orElse(null);
     }
 
     @Override
-    public ApplicationPhoto getPhoto(String photoId) {
-        //TODO добавить дешифрование хеш-строки
-        Long id = Long.parseLong(photoId);
+    public ApplicationPhoto getPhoto(String hash) {
+        Long id = cryptoTool.idOf(hash);
+        if (id == null) {
+            return null;
+        }
         return appPhotoRepo.findById(id).orElse(null);
     }
 

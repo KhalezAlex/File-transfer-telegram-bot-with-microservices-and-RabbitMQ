@@ -2,7 +2,7 @@ package org.klozevitz.service.enums;
 
 public enum LinkType {
     GET_DOC("file/get-doc"),
-    DET_PHOTO("file/get-photo");
+    GET_PHOTO("file/get-photo");
 
     private final String link;
 

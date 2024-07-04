@@ -10,6 +10,7 @@ import org.klozevitz.entity.ApplicationUser;
 import org.klozevitz.entity.RawData;
 import org.klozevitz.entity.enums.AppUserState;
 import org.klozevitz.exceptions.UploadFileException;
+import org.klozevitz.service.enums.LinkType;
 import org.klozevitz.service.enums.ServiceCommand;
 import org.klozevitz.service.interfaces.FileService;
 import org.klozevitz.service.interfaces.MainService;
@@ -18,8 +19,6 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
-
-import java.io.IOException;
 
 import static org.klozevitz.entity.enums.AppUserState.BASIC_STATE;
 import static org.klozevitz.entity.enums.AppUserState.WAIT_FOR_EMAIL_STATE;
@@ -82,8 +81,8 @@ public class MainServiceImplementation implements MainService {
         String message = null;
         try {
             ApplicationDocument appDoc = fileService.processDoc(update.getMessage());
-            //TODO добавить генерацию ссылки для скачивания документа
-            message = "Докумен успешно загружен! Ссылка для скачивания: https://test.ru/get-doc/777";
+            String link = fileService.generateLink(appDoc.getId(), LinkType.GET_DOC);
+            message = "Документ успешно загружен! Ссылка для скачивания: " + link;
         } catch (UploadFileException e) {
             log.error(e);
             message = "Загрузка файла не удалась... Повторите попытку позже.";
@@ -102,15 +101,16 @@ public class MainServiceImplementation implements MainService {
             return;
         }
 
+        String message = null;
         try {
             ApplicationPhoto appPhoto = fileService.processPhoto(update.getMessage());
-            //TODO добавить генерацию ссылки для скачивания фото
-            String answer = "Фото успешно загружено! Ссылка для скачивания: https://test.ru/get-photo/777";
-            sendAnswer(answer, chatId);
+            String link = fileService.generateLink(appPhoto.getId(), LinkType.GET_PHOTO);
+            message = "Фото успешно загружено! Ссылка для скачивания: " + link;
         } catch (UploadFileException e) {
             log.error(e);
-            String error = "К сожалению, загрузка фото не удалась. Повторите попытку позже.";
-            sendAnswer(error, chatId);
+            message = "К сожалению, загрузка фото не удалась. Повторите попытку позже.";
+        } finally {
+            sendAnswer(message, chatId);
         }
     }
 

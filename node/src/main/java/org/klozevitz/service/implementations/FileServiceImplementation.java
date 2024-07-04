@@ -3,6 +3,7 @@ package org.klozevitz.service.implementations;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.json.JSONObject;
+import org.klozevitz.CryptoTool;
 import org.klozevitz.dao.ApplicationDocumentRepository;
 import org.klozevitz.dao.ApplicationPhotoRepository;
 import org.klozevitz.dao.BinaryContentRepository;
@@ -10,6 +11,7 @@ import org.klozevitz.entity.ApplicationDocument;
 import org.klozevitz.entity.ApplicationPhoto;
 import org.klozevitz.entity.BinaryContent;
 import org.klozevitz.exceptions.UploadFileException;
+import org.klozevitz.service.enums.LinkType;
 import org.klozevitz.service.interfaces.FileService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -35,9 +37,12 @@ public class FileServiceImplementation implements FileService {
     private String fileInfoUrl;
     @Value("${fileService.service.file_storage.url}")
     private String fileStorageUrl;
+    @Value("${link.address}")
+    private String linkAddress;
     private final ApplicationDocumentRepository appDocRepo;
     private final ApplicationPhotoRepository appPhotoRepo;
     private final BinaryContentRepository binaryContentRepository;
+    private final CryptoTool cryptoTool;
 
     /**
      * filePath получается путем навигации по дереву вложенных json-ключей
@@ -139,5 +144,11 @@ public class FileServiceImplementation implements FileService {
                 .binaryContent(persistentBinaryContent)
                 .fileSize(telegramPhoto.getFileSize())
                 .build();
+    }
+
+    @Override
+    public String generateLink(Long docId, LinkType linkType) {
+        String hash = cryptoTool.hashOf(docId);
+        return "http://" + linkAddress + "/" + linkType + "?id=" + hash;
     }
 }
