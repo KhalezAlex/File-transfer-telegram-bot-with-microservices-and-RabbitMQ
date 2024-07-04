@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) не принял application.yaml от рест-сервиса. правки">
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) исправлен баг сохранения фотографий- до этого сохранялись только превьюхи">
+      <change afterPath="$PROJECT_DIR$/commonUtils/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commonUtils/src/main/java/org/klozevitz/CryptoTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/dispatcher.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/dispatcher.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/node.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/node.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +158,7 @@
       <workItem from="1719568338137" duration="15275000" />
       <workItem from="1719726246347" duration="22897000" />
       <workItem from="1719822791527" duration="2806000" />
-      <workItem from="1719842050753" duration="6766000" />
+      <workItem from="1719842050753" duration="7647000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -239,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720036766261</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="1) исправлен баг сохранения фотографий- до этого сохранялись только превьюхи">
+      <created>1720111373414</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1720111373414</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +281,8 @@
     <MESSAGE value="1) тудушка" />
     <MESSAGE value="1) рест-сервис по выгрузке данных из базы по айдишнику- фото и документы&#10;2) внимательно смотреть тудушки" />
     <MESSAGE value="1) не принял application.yaml от рест-сервиса. правки" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) не принял application.yaml от рест-сервиса. правки" />
+    <MESSAGE value="1) исправлен баг сохранения фотографий- до этого сохранялись только превьюхи" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) исправлен баг сохранения фотографий- до этого сохранялись только превьюхи" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

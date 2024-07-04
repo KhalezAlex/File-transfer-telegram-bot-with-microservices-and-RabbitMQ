@@ -15,6 +15,7 @@
         <module>node</module>
         <module>commonJPA</module>
         <module>rest-service</module>
+        <module>commonUtils</module>
     </modules>
 
     <properties>
