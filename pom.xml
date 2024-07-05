@@ -16,6 +16,7 @@
         <module>commonJPA</module>
         <module>rest-service</module>
         <module>commonUtils</module>
+        <module>mailService</module>
     </modules>
 
     <properties>

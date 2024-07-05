@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) подготовлена почва для рефакторинга сервиса по скачиванию фото">
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/configuration/NodeConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/configuration/RestServiceConfiguration.java" afterDir="false" />
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) добавлено хеширование id">
+      <change afterPath="$PROJECT_DIR$/mailService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/configuration/RabbitMqConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/configuration/RabbitMQConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/enums/LinkType.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/enums/LinkType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/interfaces/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/interfaces/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +62,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "spring.configuration.checksum": "a81020b7bf43529aee3b1f4a9b2669c7"
+    "spring.configuration.checksum": "c923c1bb9d9ed00d50cc02fad8014460"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -161,7 +155,8 @@
       <workItem from="1719568338137" duration="15275000" />
       <workItem from="1719726246347" duration="22897000" />
       <workItem from="1719822791527" duration="2806000" />
-      <workItem from="1719842050753" duration="10420000" />
+      <workItem from="1719842050753" duration="11650000" />
+      <workItem from="1720158457291" duration="370000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -268,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720114069262</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="1) добавлено хеширование id">
+      <created>1720120929808</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1720120929808</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +303,8 @@
     <MESSAGE value="1) исправлен баг сохранения фотографий- до этого сохранялись только превьюхи" />
     <MESSAGE value="1) добавлен модуль, отвечающий за кодирование айдишника" />
     <MESSAGE value="1) подготовлена почва для рефакторинга сервиса по скачиванию фото" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) подготовлена почва для рефакторинга сервиса по скачиванию фото" />
+    <MESSAGE value="1) добавлено хеширование id" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) добавлено хеширование id" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
