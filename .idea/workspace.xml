@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) добавлено хеширование id">
-      <change afterPath="$PROJECT_DIR$/mailService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) Сервис по отправке мейлов">
+      <change afterPath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/MailApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/controller/MailController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/dto/MailParameters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/service/MailSenderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/service/implementations/MailSenderServiceImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailService/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +70,9 @@
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "postgresql"
+    ],
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "HTTP Request"
     ]
   }
 }]]></component>
@@ -79,8 +85,8 @@
       <recent name="$PROJECT_DIR$/dispatcher/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.klozevitz.configuration" />
       <recent name="org.klozevitz" />
+      <recent name="org.klozevitz.configuration" />
       <recent name="org.klozevitz.dao" />
       <recent name="org.klozevitz.entity.enums" />
     </key>
@@ -92,10 +98,26 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RestService">
+  <component name="RunManager" selected="HTTP Request.scratch | #1">
+    <configuration name="scratch | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/scratch.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="DispatcherApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="dispatcher" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.klozevitz.DispatcherApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.klozevitz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MailApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="mailService" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.klozevitz.MailApp" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.klozevitz.*" />
@@ -134,6 +156,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.scratch | #1" />
+        <item itemvalue="Spring Boot.MailApp" />
         <item itemvalue="Spring Boot.RestService" />
         <item itemvalue="Spring Boot.NodeApp" />
         <item itemvalue="Spring Boot.DispatcherApp" />
@@ -156,7 +180,7 @@
       <workItem from="1719726246347" duration="22897000" />
       <workItem from="1719822791527" duration="2806000" />
       <workItem from="1719842050753" duration="11650000" />
-      <workItem from="1720158457291" duration="370000" />
+      <workItem from="1720158457291" duration="4260000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -270,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720120929808</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="1) Сервис по отправке мейлов">
+      <created>1720159052781</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1720159052782</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +335,8 @@
     <MESSAGE value="1) добавлен модуль, отвечающий за кодирование айдишника" />
     <MESSAGE value="1) подготовлена почва для рефакторинга сервиса по скачиванию фото" />
     <MESSAGE value="1) добавлено хеширование id" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) добавлено хеширование id" />
+    <MESSAGE value="1) Сервис по отправке мейлов" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) Сервис по отправке мейлов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -313,6 +345,11 @@
           <url>file://$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/service/implementations/AnswerConsumerImplementation.java</url>
           <line>19</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/service/implementations/MailSenderServiceImplementation.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
