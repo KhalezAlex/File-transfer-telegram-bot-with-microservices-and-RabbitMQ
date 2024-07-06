@@ -1,13 +1,12 @@
 package org.klozevitz.entity;
 
 import lombok.*;
-import org.klozevitz.entity.BinaryContent;
 
 import javax.persistence.*;
 
 /**
- * Сущность создана на основе сущности ApplicationDocument, но удалены 2 поля,
- * тк для фото они из телеграмма не приходят
+ * This entity is common to ApplicationDocument entity except of 2 fields
+ * cause photo does not have this fields in telegram context
  * */
 @Getter
 @Setter

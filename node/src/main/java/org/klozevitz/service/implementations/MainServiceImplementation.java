@@ -34,14 +34,11 @@ public class MainServiceImplementation implements MainService {
     private final FileService fileService;
 
     /**
-     * 1) Сохранение сообщения в базу
-     * 2) Формирование ответа
-     * 3) Отправка на обработку в очередь ответов
+     * 1) Saving raw data to raw_data table
+     * 2) Completing the response
+     * 3) Proceeding to response queue
      *
-     * Последняя ветка else на случай, если будет введен новый стейт,
-     * но не будет добавлена его обработка
-     * (или не будет перезапущен микровервис, который, в таком случае,
-     * не будет ничего знать о новой ноде)
+     * The last "else" is here in case of new state that we will not manage to handle
      * */
     @Override
     public void processTextMessage(Update update) {
@@ -60,8 +57,8 @@ public class MainServiceImplementation implements MainService {
         } else if (WAIT_FOR_EMAIL_STATE.equals(userState)) {
             //TODO добавить обработку мейла
         } else {
-            log.error("Unknown user state" + userState);
-            output = "Неизвестная ошибка! Введите \"/cancel\" и попробуйте снова!";
+            log.error("Unknown user state - " + userState);
+            output = "Unknown error! Use \"/cancel\" to interrupt current process and then try again!";
         }
 
         Long chatId = update.getMessage().getChatId();
@@ -82,10 +79,10 @@ public class MainServiceImplementation implements MainService {
         try {
             ApplicationDocument appDoc = fileService.processDoc(update.getMessage());
             String link = fileService.generateLink(appDoc.getId(), LinkType.GET_DOC);
-            message = "Документ успешно загружен! Ссылка для скачивания: " + link;
+            message = "Document successfully uploaded! Download link: " + link;
         } catch (UploadFileException e) {
             log.error(e);
-            message = "Загрузка файла не удалась... Повторите попытку позже.";
+            message = "Upload failed... Try again later.";
         } finally {
             sendAnswer(message, chatId);
         }
@@ -105,10 +102,10 @@ public class MainServiceImplementation implements MainService {
         try {
             ApplicationPhoto appPhoto = fileService.processPhoto(update.getMessage());
             String link = fileService.generateLink(appPhoto.getId(), LinkType.GET_PHOTO);
-            message = "Фото успешно загружено! Ссылка для скачивания: " + link;
+            message = "Photo successfully uploaded! Download link: " + link;
         } catch (UploadFileException e) {
             log.error(e);
-            message = "К сожалению, загрузка фото не удалась. Повторите попытку позже.";
+            message = "Upload failed... Try again later.";
         } finally {
             sendAnswer(message, chatId);
         }
@@ -118,11 +115,11 @@ public class MainServiceImplementation implements MainService {
         String error;
         AppUserState state = applicationUser.getState();
         if (!applicationUser.getIsActive()) {
-            error = "Зарегистрируйтесь или активируйте свою учетную запись для загрузки контента.";
+            error = "Sign up or complete account activation int order to be able to upload and download files";
             sendAnswer(error, chatId);
             return true;
         } else if (!BASIC_STATE.equals(state)) {
-            error = "Отмените текущую команду с помощью \"/cancel\" для отправки файлов.";
+            error = "Use \"/cancel\" to interrupt the current process and upload new file.";
             sendAnswer(error, chatId);
             return true;
         }
@@ -139,27 +136,27 @@ public class MainServiceImplementation implements MainService {
     private String processServiceCommand(ApplicationUser applicationUser, String command) {
         ServiceCommand serviceCommand = ServiceCommand.fromValue(command);
         if (REGISTRATION.equals(serviceCommand)) {
-            //TODO добавить регистрацию
-            return "Временно не доступно!";
+            //TODO implement registration feature
+            return "unavailable!";
         } else if (HELP.equals(serviceCommand)) {
             return help();
         } else if (START.equals(serviceCommand)) {
-            return "Здравствуйте! \nЧтобы посмотреть список доступных команд, введите \"/help\"";
+            return "Hello!\nUse \"/help\" to explore available commands";
         } else {
-            return "Неизвестная команда! \nЧтобы посмотреть список доступных команд, введите \"/help\"";
+            return "Unknown command! \nUse \"/help\" to explore available commands";
         }
     }
 
     private String help() {
-        return "Список доступных команд:\n" +
-                "/cancel - отмена выполнения текуещй команды;\n" +
-                "/registration - регистрация пользователя";
+        return "Available commands:\n" +
+                "/cancel - cancel process;\n" +
+                "/registration - account registration";
     }
 
     private String cancelProcess(ApplicationUser appUser) {
         appUser.setState(BASIC_STATE);
         applicationUserRepository.save(appUser);
-        return "Команда отменена!";
+        return "Canceled!";
     }
 
     private void saveRawData(Update update) {
@@ -170,9 +167,9 @@ public class MainServiceImplementation implements MainService {
     }
 
     /**
-     * Обратить внимание, что юзер на вход подается именно ТЕЛЕГРАММОВСКИЙ
-     * persistent - означает то, что объект, предположительно, есть в бд
-     * transient - означает то, что объект только предстоит сохранить в бд
+     * Pay attention that the USER on 175 is A TELEGRAM USER
+     * persistent - object might have been in database
+     * transient - object we are going to save to database
      */
     private ApplicationUser findOrSaveApplicationUser(Update update) {
         User telegramUser = update
@@ -187,7 +184,7 @@ public class MainServiceImplementation implements MainService {
                     .username(telegramUser.getUserName())
                     .firstName(telegramUser.getFirstName())
                     .lastName(telegramUser.getLastName())
-                    //TODO изменить значение по умолчанию после добавления регистрации
+                    //TODO hardcode. change the default value after registration feature implemented
                     .isActive(true)
                     .state(BASIC_STATE)
                     .build();

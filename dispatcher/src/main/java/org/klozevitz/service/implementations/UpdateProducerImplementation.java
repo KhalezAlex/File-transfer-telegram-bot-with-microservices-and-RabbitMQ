@@ -14,7 +14,7 @@ public class UpdateProducerImplementation implements UpdateProducer {
     private final RabbitTemplate rabbitTemplate;
 
     /**
-     * логгируем только текст, поэтому, вместо текста, будет прочерк
+     * logging just text, so we will have "-" or " " instead
      * */
     @Override
     public void produce(String rabbitQueue, Update update) {

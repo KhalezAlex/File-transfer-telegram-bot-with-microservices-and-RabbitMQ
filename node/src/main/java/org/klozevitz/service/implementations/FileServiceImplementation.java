@@ -45,7 +45,7 @@ public class FileServiceImplementation implements FileService {
     private final CryptoTool cryptoTool;
 
     /**
-     * filePath получается путем навигации по дереву вложенных json-ключей
+     * filePath is completed navigating by inner json-key tree
      */
     @Override
     public ApplicationDocument processDoc(Message telegramMessage) {
@@ -119,8 +119,8 @@ public class FileServiceImplementation implements FileService {
             throw new UploadFileException(e);
         }
 
-        //TODO можно оптимизировать (про разбиение файла,
-        // чтобы не хранить в оперативке большие файлы)
+        //TODO in order not to keep big files in RAM we need to check the file size and
+        // try to divide if it is "larger than"
         try (InputStream is = urlObj.openStream()) {
             return is.readAllBytes();
         } catch (IOException e) {

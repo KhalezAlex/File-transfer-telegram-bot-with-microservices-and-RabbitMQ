@@ -1,4 +1,4 @@
-package org.klozevitz.service;
+package org.klozevitz.service.interfaces;
 
 import org.klozevitz.dto.MailParameters;
 

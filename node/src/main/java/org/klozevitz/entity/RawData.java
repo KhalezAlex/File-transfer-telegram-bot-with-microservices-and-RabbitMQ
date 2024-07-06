@@ -9,9 +9,8 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import javax.persistence.*;
 
 /**
- * @EqualsAndHashCode для нормального сравнения сущностей по equals не хватает
- * исключения из сравнения айдишника, чтобы сущность из базы
- * была эквивалентна (но не равна) сущности не из базы
+ * @EqualsAndHashCode - we should override equals() and hashCode() methods excluding "id" field in order
+ * to get positive equality between persistent and transient objects that are potentially equal
  * */
 
 @Getter

@@ -1,9 +1,10 @@
 server:
   port: 8003
 
-#Этот конфиг можно не описывать, если приложение и RabbitMQ запускаются на локальной машине.
-#Иначе надо прописывать.
-#Сделано на будущее
+# We are not to specify this config block if we are going to run RabbitMQ on the local machine.
+# We are to do this if we are not.
+# done in advance
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:6543/tg_bot_test
@@ -13,6 +14,7 @@ spring:
     generate-ddl: true
 #
 
+# for hash function
 salt: Pdlkfsj4l5k2Y324kjFj23kAlj234sdfkUlk5Padas6898s
 
 #debug: true

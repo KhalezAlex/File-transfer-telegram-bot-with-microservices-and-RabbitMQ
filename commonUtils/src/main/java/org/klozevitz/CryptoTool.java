@@ -6,8 +6,7 @@ public class CryptoTool {
     private final Hashids hashId;
 
     /**
-     * Избавляемся от так называемых magic numbers- чисел, закинутых в аргументы метода
-     * без объявления переменной. Не понятно, откуда они взялись, что обозначают- говнокод)
+     * Getting rid of "magic numbers"- numbers, that have not been assigned to any variable&
      * */
     public CryptoTool(String salt) {
         int minHashLength = 10;

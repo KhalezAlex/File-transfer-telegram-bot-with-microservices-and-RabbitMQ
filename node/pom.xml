@@ -21,7 +21,7 @@
     </properties>
 
     <dependencies>
-<!--        базовые-->
+<!--        basic-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -33,7 +33,7 @@
             <version>${telegrambot.starter.version}</version>
         </dependency>
 
-<!--        очереди-->
+<!--        queues-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
@@ -45,7 +45,7 @@
             <version>${commonRabbitMq.version}</version>
         </dependency>
 
-<!--        данные-->
+<!--        data-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -64,9 +64,9 @@
         </dependency>
 
 
-<!--        утилитарные зависимости-->
+<!--        util dependencies-->
 
-<!--        зависимость, позволяющая сохранять в бд данные в формате json-->
+<!--        to save json format data to database-->
         <dependency>
             <groupId>com.vladmihalcea</groupId>
             <artifactId>hibernate-types-52</artifactId>

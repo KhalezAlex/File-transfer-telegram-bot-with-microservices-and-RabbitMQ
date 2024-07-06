@@ -8,8 +8,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
- * @CreationTimstamp - аннотация автоматом генерит время первого подключения к приложению
- * EnumType.ORDINAL - возвращает номер в порядке перечисления, а не результат вызова метода getName()
+ * @CreationTimstamp - this annotation generates first connection timestamp automatically
+ * EnumType.ORDINAL - returns enumeration number instead of getName() method result
  * */
 
 @Getter

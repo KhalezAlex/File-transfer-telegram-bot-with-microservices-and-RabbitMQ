@@ -47,7 +47,7 @@
             <version>${postgres.version}</version>
         </dependency>
 
-<!--        утилитарные зависимости-->
+<!--        util dependencies-->
         <dependency>
             <groupId>org.klozevitz</groupId>
             <artifactId>commonUtils</artifactId>

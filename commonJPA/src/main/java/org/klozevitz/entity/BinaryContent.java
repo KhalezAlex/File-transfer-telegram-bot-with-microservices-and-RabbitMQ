@@ -6,7 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 
 /**
- * Поле типа byte[] будет иметь формат "bytea", аналогичный формату, диктуемому аннотацией @BLOB
+ * The byte[] field will map to common bytea format. Almost equals @BLOB
  * */
 
 @Getter

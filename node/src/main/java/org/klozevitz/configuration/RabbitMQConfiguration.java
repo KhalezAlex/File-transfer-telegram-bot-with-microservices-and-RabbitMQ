@@ -5,9 +5,6 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * Не понадобились бины с названием очередей, но, при этом, MessageConverter остался
- * */
 @Configuration
 public class RabbitMQConfiguration {
     @Bean
