@@ -25,6 +25,8 @@ fileService:
       url: https://api.telegram.org/bot{token}/getFile?file_id={fileId}
     file_storage:
       url: https://api.telegram.org/file/bot{token}/{filePath}
+    mail:
+      url: http://127.0.0.1:8005/mail/send
 
 link:
   address: 127.0.0.1:8003

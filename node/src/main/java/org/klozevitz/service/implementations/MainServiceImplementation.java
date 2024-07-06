@@ -20,6 +20,8 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 
+import java.util.Optional;
+
 import static org.klozevitz.entity.enums.AppUserState.BASIC_STATE;
 import static org.klozevitz.entity.enums.AppUserState.WAIT_FOR_EMAIL_STATE;
 import static org.klozevitz.service.enums.ServiceCommand.*;
@@ -175,10 +177,10 @@ public class MainServiceImplementation implements MainService {
         User telegramUser = update
                 .getMessage()
                 .getFrom();
-        ApplicationUser persistentApplicationUser =
+        Optional<ApplicationUser> persistentApplicationUser =
                 applicationUserRepository
-                        .findApplicationUserByTelegramUserId(telegramUser.getId());
-        if (persistentApplicationUser == null) {
+                        .findByTelegramUserId(telegramUser.getId());
+        if (persistentApplicationUser.isEmpty()) {
             ApplicationUser transientApplicationUser = ApplicationUser.builder()
                     .telegramUserId(telegramUser.getId())
                     .username(telegramUser.getUserName())
@@ -190,6 +192,6 @@ public class MainServiceImplementation implements MainService {
                     .build();
             return applicationUserRepository.save(transientApplicationUser);
         }
-        return persistentApplicationUser;
+        return persistentApplicationUser.get();
     }
 }
