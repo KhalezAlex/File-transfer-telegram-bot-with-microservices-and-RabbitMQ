@@ -1,0 +1,20 @@
+server:
+  port: 8002
+
+spring:
+  mail:
+    host: smtp.yandex.ru
+    port: 465
+    protocol: smtps
+    username: klozevitz.test@yandex.ru
+    password: gnnijvcaadwjfmfp
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+
+service:
+  activation:
+    url: http://127.0.0.1:8005/user/activation?id={id}
