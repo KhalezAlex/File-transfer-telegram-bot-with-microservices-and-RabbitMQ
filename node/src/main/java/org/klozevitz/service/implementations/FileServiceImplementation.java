@@ -3,7 +3,7 @@ package org.klozevitz.service.implementations;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.json.JSONObject;
-import org.klozevitz.CryptoTool;
+import org.klozevitz.utils.CryptoTool;
 import org.klozevitz.dao.ApplicationDocumentRepository;
 import org.klozevitz.dao.ApplicationPhotoRepository;
 import org.klozevitz.dao.BinaryContentRepository;

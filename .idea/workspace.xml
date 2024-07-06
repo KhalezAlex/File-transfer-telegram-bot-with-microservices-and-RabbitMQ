@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) 500-error- can't receive auth token from the mail server solved (needed a special application email password instead of personal password)">
-      <change afterPath="$PROJECT_DIR$/mailService/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) refactoring- MailParameters.java moved to commonUtils module" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,6 +77,7 @@
       <recent name="$PROJECT_DIR$/dispatcher/src/main/resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.klozevitz.dto" />
       <recent name="org.klozevitz" />
       <recent name="org.klozevitz.configuration" />
       <recent name="org.klozevitz.dao" />
@@ -176,7 +174,7 @@
       <workItem from="1719822791527" duration="2806000" />
       <workItem from="1719842050753" duration="11650000" />
       <workItem from="1720158457291" duration="11332000" />
-      <workItem from="1720281418967" duration="425000" />
+      <workItem from="1720281418967" duration="737000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -325,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720272682047</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="1) refactoring- MailParameters.java moved to commonUtils module">
+      <created>1720285203681</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1720285203682</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +369,8 @@
     <MESSAGE value="1) migrating project to english" />
     <MESSAGE value="1) mini ref" />
     <MESSAGE value="1) 500-error- can't receive auth token from the mail server solved (needed a special application email password instead of personal password)" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) 500-error- can't receive auth token from the mail server solved (needed a special application email password instead of personal password)" />
+    <MESSAGE value="1) refactoring- MailParameters.java moved to commonUtils module" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) refactoring- MailParameters.java moved to commonUtils module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

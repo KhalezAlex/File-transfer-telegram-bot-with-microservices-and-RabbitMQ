@@ -1,6 +1,6 @@
 package org.klozevitz.configuration;
 
-import org.klozevitz.CryptoTool;
+import org.klozevitz.utils.CryptoTool;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

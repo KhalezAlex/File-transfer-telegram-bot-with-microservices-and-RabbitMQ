@@ -1,4 +1,4 @@
-package org.klozevitz;
+package org.klozevitz.utils;
 
 import org.hashids.Hashids;
 
