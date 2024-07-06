@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) migrating project to english">
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) mini ref">
       <change afterPath="$PROJECT_DIR$/mailService/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/service/implementations/MailSenderServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/service/implementations/MailSenderServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/controller/MailController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +94,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.scratch | #1">
+  <component name="RunManager" selected="Spring Boot.MailApp">
     <configuration name="scratch | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/scratch.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -176,7 +176,7 @@
       <workItem from="1719726246347" duration="22897000" />
       <workItem from="1719822791527" duration="2806000" />
       <workItem from="1719842050753" duration="11650000" />
-      <workItem from="1720158457291" duration="10376000" />
+      <workItem from="1720158457291" duration="11168000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -311,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720260410826</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="1) mini ref">
+      <created>1720269310801</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1720269310801</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +355,8 @@
     <MESSAGE value="1) Сервис по отправке мейлов" />
     <MESSAGE value="1) Сервис по отправке мейлов&#10;2) ощибка аутентификации в процессе отправки. решаем" />
     <MESSAGE value="1) migrating project to english" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) migrating project to english" />
+    <MESSAGE value="1) mini ref" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) mini ref" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

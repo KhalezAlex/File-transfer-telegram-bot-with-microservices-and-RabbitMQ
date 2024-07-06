@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class MailController {
     private final MailSenderService mailSenderService;
 
-    //TODO 500-error- can't receive auth token from the mail server
     @PostMapping("/send")
     public ResponseEntity<?> sendActivationMail(@RequestBody MailParameters mailParameters) {
         mailSenderService.send(mailParameters);
