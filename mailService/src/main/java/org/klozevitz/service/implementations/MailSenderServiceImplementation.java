@@ -33,7 +33,7 @@ public class MailSenderServiceImplementation implements MailSenderService {
     }
 
     private String getActivationMessageBody(String id) {
-        var message = String.format("Click the link below to complete registration:\n%s",
+        String message = String.format("Click the link below to complete registration:\n%s",
                 activationServiceUrl);
         return message.replace("{id}", id);
 //        return String
