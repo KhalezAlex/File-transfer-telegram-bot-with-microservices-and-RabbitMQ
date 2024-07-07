@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) refactoring- MailParameters.java annotations">
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/ApplicationUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/ActivationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/UserActivationServiceImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/interfaces/UserActivationService.java" afterDir="false" />
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) activation implementation in progress...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/dao/ApplicationUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/dao/ApplicationUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/node/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +24,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="22e856e1-34fa-4c98-a5c5-e0d1ac6d840e" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -67,7 +62,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "spring.configuration.checksum": "f15415ea3e2d8c2eae6fc8985896bfb7"
   },
   "keyToStringList": {
@@ -185,7 +180,8 @@
       <workItem from="1719822791527" duration="2806000" />
       <workItem from="1719842050753" duration="11650000" />
       <workItem from="1720158457291" duration="11332000" />
-      <workItem from="1720281418967" duration="3014000" />
+      <workItem from="1720281418967" duration="5034000" />
+      <workItem from="1720374269482" duration="721000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -348,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720285408312</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="1) activation implementation in progress...">
+      <created>1720293924960</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1720293924960</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +392,8 @@
     <MESSAGE value="1) 500-error- can't receive auth token from the mail server solved (needed a special application email password instead of personal password)" />
     <MESSAGE value="1) refactoring- MailParameters.java moved to commonUtils module" />
     <MESSAGE value="1) refactoring- MailParameters.java annotations" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) refactoring- MailParameters.java annotations" />
+    <MESSAGE value="1) activation implementation in progress..." />
+    <option name="LAST_COMMIT_MESSAGE" value="1) activation implementation in progress..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

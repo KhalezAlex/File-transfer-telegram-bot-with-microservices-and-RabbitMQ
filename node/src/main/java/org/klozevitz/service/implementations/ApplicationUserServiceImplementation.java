@@ -11,18 +11,18 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class ApplicationUserServiceImplementation implements ApplicationUserService {
-    private final ApplicationUserRepository appUserRepo;
+    private final ApplicationUserRepository applicationUserRepository;
     private final CryptoTool cryptoTool;
     @Value("${fileService.service.mail.url}")
     private String mailServiceUrl;
 
     @Override
-    public String registerUser(ApplicationUser appUser) {
+    public String registerUser(ApplicationUser applicationUser) {
         return null;
     }
 
     @Override
-    public String setEmail(ApplicationUser appUser, String email) {
+    public String setEmail(ApplicationUser applicationUser, String email) {
         return null;
     }
 }
