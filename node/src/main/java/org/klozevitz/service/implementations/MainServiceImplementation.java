@@ -12,6 +12,7 @@ import org.klozevitz.entity.enums.AppUserState;
 import org.klozevitz.exceptions.UploadFileException;
 import org.klozevitz.service.enums.LinkType;
 import org.klozevitz.service.enums.ServiceCommand;
+import org.klozevitz.service.interfaces.ApplicationUserService;
 import org.klozevitz.service.interfaces.FileService;
 import org.klozevitz.service.interfaces.MainService;
 import org.klozevitz.service.interfaces.ProducerService;
@@ -34,6 +35,7 @@ public class MainServiceImplementation implements MainService {
     private final ApplicationUserRepository applicationUserRepository;
     private final ProducerService producerService;
     private final FileService fileService;
+    private final ApplicationUserService applicationUserService;
 
     /**
      * 1) Saving raw data to raw_data table
@@ -57,7 +59,7 @@ public class MainServiceImplementation implements MainService {
         } else if (BASIC_STATE.equals(userState)) {
             output = processServiceCommand(applicationUser, command);
         } else if (WAIT_FOR_EMAIL_STATE.equals(userState)) {
-            //TODO добавить обработку мейла
+             output = applicationUserService.setEmail(applicationUser, command);
         } else {
             log.error("Unknown user state - " + userState);
             output = "Unknown error! Use \"/cancel\" to interrupt current process and then try again!";
@@ -138,8 +140,7 @@ public class MainServiceImplementation implements MainService {
     private String processServiceCommand(ApplicationUser applicationUser, String command) {
         ServiceCommand serviceCommand = ServiceCommand.fromValue(command);
         if (REGISTRATION.equals(serviceCommand)) {
-            //TODO implement registration feature
-            return "unavailable!";
+            return applicationUserService.registerUser(applicationUser);
         } else if (HELP.equals(serviceCommand)) {
             return help();
         } else if (START.equals(serviceCommand)) {

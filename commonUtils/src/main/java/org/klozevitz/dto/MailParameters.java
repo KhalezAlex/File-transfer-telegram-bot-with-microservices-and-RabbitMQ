@@ -5,8 +5,8 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class MailParameters {
     private String id;
     private String emailTo;

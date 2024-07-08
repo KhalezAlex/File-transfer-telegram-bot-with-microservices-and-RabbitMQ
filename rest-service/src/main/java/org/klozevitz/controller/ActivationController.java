@@ -15,7 +15,7 @@ public class ActivationController {
     private final UserActivationService userActivationService;
 
     /**
-     * actually user can type ghost id and in this case whe should return BAD REQUEST,
+     * actually user can type ghost id and in this case whe should return BAD_REQUEST,
      * but we are trying to implement MVP and will do it later
      * */
 
