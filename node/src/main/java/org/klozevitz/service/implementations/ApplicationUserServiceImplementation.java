@@ -15,14 +15,16 @@ import org.springframework.web.client.RestTemplate;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-import static org.klozevitz.entity.enums.AppUserState.BASIC_STATE;
-import static org.klozevitz.entity.enums.AppUserState.WAIT_FOR_EMAIL_STATE;
+import java.util.Optional;
+
+import static org.klozevitz.entity.enums.ApplicationUserState.BASIC_STATE;
+import static org.klozevitz.entity.enums.ApplicationUserState.WAIT_FOR_EMAIL_STATE;
 
 @Log4j
 @Service
 @RequiredArgsConstructor
 public class ApplicationUserServiceImplementation implements ApplicationUserService {
-    private final ApplicationUserRepository applicationUserRepository;
+    private final ApplicationUserRepository appUserRepo;
     private final CryptoTool cryptoTool;
     @Value("${fileService.service.mail.url}")
     private String mailServiceUrl;
@@ -36,7 +38,7 @@ public class ApplicationUserServiceImplementation implements ApplicationUserServ
                     "Follow the instructions in that email.";
         }
         applicationUser.setState(WAIT_FOR_EMAIL_STATE);
-        applicationUserRepository.save(applicationUser);
+        appUserRepo.save(applicationUser);
         return "Please enter your email address.";
     }
 
@@ -44,25 +46,26 @@ public class ApplicationUserServiceImplementation implements ApplicationUserServ
     public String setEmail(ApplicationUser applicationUser, String email) {
         try {
             InternetAddress emailAddress = new InternetAddress(email);
+            emailAddress.validate();
         } catch (AddressException e) {
             return "Please enter the correct email address. Type \"/cancel\" to abort operation.";
         }
 
-        var optional = applicationUserRepository.findByEmail(email);
+        Optional<ApplicationUser> userByEmail = appUserRepo.findByEmail(email);
 
-        if (optional.isEmpty()) {
+        if (userByEmail.isEmpty()) {
             applicationUser.setEmail(email);
             applicationUser.setState(BASIC_STATE);
-            applicationUser = applicationUserRepository.save(applicationUser);
+            applicationUser = appUserRepo.save(applicationUser);
 
-            var cryptoUserId = cryptoTool.hashOf(applicationUser.getId());
-            var response = sendRequestToMailService(cryptoUserId, email);
+            String cryptoUserId = cryptoTool.hashOf(applicationUser.getId());
+            ResponseEntity<String> response = sendRequestToMailService(cryptoUserId, email);
 
             if (response.getStatusCode() != HttpStatus.OK) {
-                var message = String.format("Email to %s cannot be sent.", email);
+                String message = String.format("Email to %s cannot be sent.", email);
                 log.error(message);
                 applicationUser.setEmail(null);
-                applicationUserRepository.save(applicationUser);
+                appUserRepo.save(applicationUser);
                 return message;
             }
             return "Confirmation email has been sent to your email address.\n" +
@@ -74,10 +77,10 @@ public class ApplicationUserServiceImplementation implements ApplicationUserServ
     }
 
     private ResponseEntity<String> sendRequestToMailService(String cryptoUserId, String email) {
-        var restTemplate = new RestTemplate();
-        var headers = new HttpHeaders();
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        var mailParameters = MailParameters.builder()
+        MailParameters mailParameters = MailParameters.builder()
                 .id(cryptoUserId)
                 .emailTo(email)
                 .build();

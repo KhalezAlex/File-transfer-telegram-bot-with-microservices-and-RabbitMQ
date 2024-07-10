@@ -8,7 +8,7 @@ import org.klozevitz.entity.ApplicationDocument;
 import org.klozevitz.entity.ApplicationPhoto;
 import org.klozevitz.entity.ApplicationUser;
 import org.klozevitz.entity.RawData;
-import org.klozevitz.entity.enums.AppUserState;
+import org.klozevitz.entity.enums.ApplicationUserState;
 import org.klozevitz.exceptions.UploadFileException;
 import org.klozevitz.service.enums.LinkType;
 import org.klozevitz.service.enums.ServiceCommand;
@@ -23,19 +23,19 @@ import org.telegram.telegrambots.meta.api.objects.User;
 
 import java.util.Optional;
 
-import static org.klozevitz.entity.enums.AppUserState.BASIC_STATE;
-import static org.klozevitz.entity.enums.AppUserState.WAIT_FOR_EMAIL_STATE;
+import static org.klozevitz.entity.enums.ApplicationUserState.BASIC_STATE;
+import static org.klozevitz.entity.enums.ApplicationUserState.WAIT_FOR_EMAIL_STATE;
 import static org.klozevitz.service.enums.ServiceCommand.*;
 
 @Log4j
 @Service
 @RequiredArgsConstructor
 public class MainServiceImplementation implements MainService {
-    private final RawDataRepository rawDataRepository;
-    private final ApplicationUserRepository applicationUserRepository;
+    private final RawDataRepository rawDataRepo;
+    private final ApplicationUserRepository appUserRepo;
     private final ProducerService producerService;
     private final FileService fileService;
-    private final ApplicationUserService applicationUserService;
+    private final ApplicationUserService appUserService;
 
     /**
      * 1) Saving raw data to raw_data table
@@ -49,7 +49,7 @@ public class MainServiceImplementation implements MainService {
         saveRawData(update);
 
         ApplicationUser applicationUser = findOrSaveApplicationUser(update);
-        AppUserState userState = applicationUser.getState();
+        ApplicationUserState userState = applicationUser.getState();
         String command = update.getMessage().getText();
         String output = "";
 
@@ -59,7 +59,7 @@ public class MainServiceImplementation implements MainService {
         } else if (BASIC_STATE.equals(userState)) {
             output = processServiceCommand(applicationUser, command);
         } else if (WAIT_FOR_EMAIL_STATE.equals(userState)) {
-             output = applicationUserService.setEmail(applicationUser, command);
+             output = appUserService.setEmail(applicationUser, command);
         } else {
             log.error("Unknown user state - " + userState);
             output = "Unknown error! Use \"/cancel\" to interrupt current process and then try again!";
@@ -117,9 +117,9 @@ public class MainServiceImplementation implements MainService {
 
     private boolean isNotAllowedToSendContent(Long chatId, ApplicationUser applicationUser) {
         String error;
-        AppUserState state = applicationUser.getState();
+        ApplicationUserState state = applicationUser.getState();
         if (!applicationUser.getIsActive()) {
-            error = "Sign up or complete account activation int order to be able to upload and download files";
+            error = "Sign up or verify your account in order to be able to upload and download files";
             sendAnswer(error, chatId);
             return true;
         } else if (!BASIC_STATE.equals(state)) {
@@ -140,7 +140,7 @@ public class MainServiceImplementation implements MainService {
     private String processServiceCommand(ApplicationUser applicationUser, String command) {
         ServiceCommand serviceCommand = ServiceCommand.fromValue(command);
         if (REGISTRATION.equals(serviceCommand)) {
-            return applicationUserService.registerUser(applicationUser);
+            return appUserService.registerUser(applicationUser);
         } else if (HELP.equals(serviceCommand)) {
             return help();
         } else if (START.equals(serviceCommand)) {
@@ -158,7 +158,7 @@ public class MainServiceImplementation implements MainService {
 
     private String cancelProcess(ApplicationUser appUser) {
         appUser.setState(BASIC_STATE);
-        applicationUserRepository.save(appUser);
+        appUserRepo.save(appUser);
         return "Canceled!";
     }
 
@@ -166,7 +166,7 @@ public class MainServiceImplementation implements MainService {
         RawData rawData = RawData.builder()
                 .event(update)
                 .build();
-        rawDataRepository.save(rawData);
+        rawDataRepo.save(rawData);
     }
 
     /**
@@ -179,7 +179,7 @@ public class MainServiceImplementation implements MainService {
                 .getMessage()
                 .getFrom();
         Optional<ApplicationUser> persistentApplicationUser =
-                applicationUserRepository
+                appUserRepo
                         .findByTelegramUserId(telegramUser.getId());
         if (persistentApplicationUser.isEmpty()) {
             ApplicationUser transientApplicationUser = ApplicationUser.builder()
@@ -187,11 +187,10 @@ public class MainServiceImplementation implements MainService {
                     .username(telegramUser.getUserName())
                     .firstName(telegramUser.getFirstName())
                     .lastName(telegramUser.getLastName())
-                    //TODO hardcode. change the default value after registration feature implemented
-                    .isActive(true)
+                    .isActive(false)
                     .state(BASIC_STATE)
                     .build();
-            return applicationUserRepository.save(transientApplicationUser);
+            return appUserRepo.save(transientApplicationUser);
         }
         return persistentApplicationUser.get();
     }

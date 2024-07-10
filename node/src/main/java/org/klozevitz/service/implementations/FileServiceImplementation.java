@@ -41,7 +41,7 @@ public class FileServiceImplementation implements FileService {
     private String linkAddress;
     private final ApplicationDocumentRepository appDocRepo;
     private final ApplicationPhotoRepository appPhotoRepo;
-    private final BinaryContentRepository binaryContentRepository;
+    private final BinaryContentRepository binaryContentRepo;
     private final CryptoTool cryptoTool;
 
     /**
@@ -84,7 +84,7 @@ public class FileServiceImplementation implements FileService {
         BinaryContent transientBinaryContent = BinaryContent.builder()
                 .fileAsByteArray(fileAsByteArray)
                 .build();
-        return binaryContentRepository.save(transientBinaryContent);
+        return binaryContentRepo.save(transientBinaryContent);
     }
 
     private String filePathFromResponseEntity(ResponseEntity<String> response) {

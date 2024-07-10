@@ -50,13 +50,13 @@ public class UpdateController {
     }
 
     private void setUnsupportedMessageTypeView(Update update) {
-        SendMessage sendMessage = messageUtil.generateSendMessageWithText(update,
+        var sendMessage = messageUtil.generateSendMessageWithText(update,
                 "Message type is not supported!");
         setView(sendMessage);
     }
 
     private void setFileIsReceivedView(Update update) {
-        SendMessage sendMessage = messageUtil.generateSendMessageWithText(update,
+        var sendMessage = messageUtil.generateSendMessageWithText(update,
                 "File accepted. Proceeding...");
         setView(sendMessage);
     }

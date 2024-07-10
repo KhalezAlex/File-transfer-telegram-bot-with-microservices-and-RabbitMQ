@@ -2,7 +2,7 @@ package org.klozevitz.entity;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.klozevitz.entity.enums.AppUserState;
+import org.klozevitz.entity.enums.ApplicationUserState;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -33,5 +33,5 @@ public class ApplicationUser {
     private String email;
     private Boolean isActive;
     @Enumerated(EnumType.STRING)
-    private AppUserState state;
+    private ApplicationUserState state;
 }

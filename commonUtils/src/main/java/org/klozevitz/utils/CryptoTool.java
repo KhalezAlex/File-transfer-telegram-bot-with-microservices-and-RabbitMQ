@@ -6,7 +6,7 @@ public class CryptoTool {
     private final Hashids hashId;
 
     /**
-     * Getting rid of "magic numbers"- numbers, that have not been assigned to any variable&
+     * Getting rid of "magic numbers"- numbers, that have not been assigned to any variable
      * */
     public CryptoTool(String salt) {
         int minHashLength = 10;

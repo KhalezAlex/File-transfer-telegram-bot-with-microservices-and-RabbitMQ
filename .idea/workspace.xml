@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) activation implementation in progress... mini refactoring">
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) activation implementation in progress... 5 min">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/dao/ApplicationUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/dao/ApplicationUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commonUtils/src/main/java/org/klozevitz/dto/MailParameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonUtils/src/main/java/org/klozevitz/dto/MailParameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/ApplicationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/ApplicationUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/enums/AppUserState.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/enums/ApplicationUserState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonUtils/src/main/java/org/klozevitz/utils/CryptoTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonUtils/src/main/java/org/klozevitz/utils/CryptoTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/UpdateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/util/MessageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/util/MessageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/dispatcher.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/dispatcher.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/node.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/node.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/service/implementations/MailSenderServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/service/implementations/MailSenderServiceImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/ActivationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/ActivationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +191,7 @@
       <workItem from="1720281418967" duration="5034000" />
       <workItem from="1720374269482" duration="1022000" />
       <workItem from="1720379256321" duration="2772000" />
-      <workItem from="1720459540595" duration="2524000" />
+      <workItem from="1720459540595" duration="8907000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -360,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720378867823</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="1) activation implementation in progress... 5 min">
+      <created>1720462851768</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1720462851768</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +418,8 @@
     <MESSAGE value="1) refactoring- MailParameters.java annotations" />
     <MESSAGE value="1) activation implementation in progress..." />
     <MESSAGE value="1) activation implementation in progress... mini refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) activation implementation in progress... mini refactoring" />
+    <MESSAGE value="1) activation implementation in progress... 5 min" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) activation implementation in progress... 5 min" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -414,9 +430,19 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/service/implementations/MailSenderServiceImplementation.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
