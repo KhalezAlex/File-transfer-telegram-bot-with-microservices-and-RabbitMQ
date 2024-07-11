@@ -5,7 +5,8 @@ bot:
   username: Proxodimiec_bot
   token: 7268790759:AAGWm_KF-JJHrK2Y1bW-9bNh3C2FL9A38_g
 
-# We are not to specify this config block if we are going to run RabbitMQ on the local machine.
+# We are not to specify this config block if we are going to run
+# RabbitMQ on the local machine.
 # We are to do this if we are not.
 # done in advance
 
