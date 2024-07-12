@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MailController {
     private final MailSenderService mailSenderService;
 
+    //TODO implement controller advice- catching non-200 responses
     @PostMapping("/send")
     public ResponseEntity<?> sendActivationMail(@RequestBody MailParameters mailParameters) {
         mailSenderService.send(mailParameters);

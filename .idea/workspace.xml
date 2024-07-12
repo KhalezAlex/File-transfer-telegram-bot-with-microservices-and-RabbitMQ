@@ -4,10 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) refactoring">
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) /register does not work properly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/resources/log4j.properties" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/resources/log4j.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/dao/ApplicationDocumentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/model/repositories/ApplicationDocumentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/dao/ApplicationPhotoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/model/repositories/ApplicationPhotoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/dao/ApplicationUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/model/repositories/ApplicationUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/dao/BinaryContentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/model/repositories/BinaryContentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/ApplicationDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/model/entity/ApplicationDocument.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/ApplicationPhoto.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/model/entity/ApplicationPhoto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/ApplicationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/model/entity/ApplicationUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/BinaryContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/model/entity/BinaryContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/entity/enums/ApplicationUserState.java" beforeDir="false" afterPath="$PROJECT_DIR$/commonJPA/src/main/java/org/klozevitz/model/entity/enums/ApplicationUserState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/dispatcher.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/dispatcher.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/node.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/node.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mailService/src/main/java/org/klozevitz/controller/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/dao/RawDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/repositories/RawDataRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/ApplicationUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/ApplicationUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/interfaces/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/UserActivationServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/UserActivationServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/interfaces/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/interfaces/FileService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +115,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RestService">
+  <component name="RunManager" selected="HTTP Request.scratch | #1">
     <configuration name="scratch | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/scratch.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -153,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.RestService" />
-        <item itemvalue="Spring Boot.NodeApp" />
+        <item itemvalue="HTTP Request.scratch | #1" />
         <item itemvalue="Spring Boot.MailApp" />
         <item itemvalue="Spring Boot.DispatcherApp" />
-        <item itemvalue="HTTP Request.scratch | #1" />
+        <item itemvalue="Spring Boot.NodeApp" />
+        <item itemvalue="Spring Boot.RestService" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +203,10 @@
       <workItem from="1720379256321" duration="2772000" />
       <workItem from="1720459540595" duration="8907000" />
       <workItem from="1720639732169" duration="3655000" />
-      <workItem from="1720695869532" duration="8584000" />
+      <workItem from="1720695869532" duration="9080000" />
+      <workItem from="1720728894607" duration="1000" />
+      <workItem from="1720773111838" duration="571000" />
+      <workItem from="1720773872793" duration="5240000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -374,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720639808101</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="1) /register does not work properly">
+      <created>1720728398329</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1720728398330</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,7 +423,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="1) Диспетчер сообщений&#10;2) Нода для бизнес-логики&#10;3) Интеграция с RabbitMQ" />
     <MESSAGE value="1) Интеграция с Postgresql&#10;2) Сохранение сообщений в виде jsonb в базу данных&#10;3) Рефакторинг" />
     <MESSAGE value="1) Добавлены пользователи, сохранение в бд при первом обращении к чату" />
     <MESSAGE value="1) Рефакторинг" />
@@ -418,7 +447,8 @@
     <MESSAGE value="1) activation implementation in progress... mini refactoring" />
     <MESSAGE value="1) activation implementation in progress... 5 min" />
     <MESSAGE value="1) refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) refactoring" />
+    <MESSAGE value="1) /register does not work properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) /register does not work properly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

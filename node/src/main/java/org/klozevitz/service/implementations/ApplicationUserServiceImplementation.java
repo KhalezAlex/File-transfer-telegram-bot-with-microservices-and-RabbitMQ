@@ -2,9 +2,9 @@ package org.klozevitz.service.implementations;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import org.klozevitz.dao.ApplicationUserRepository;
+import org.klozevitz.model.repositories.ApplicationUserRepository;
 import org.klozevitz.dto.MailParameters;
-import org.klozevitz.entity.ApplicationUser;
+import org.klozevitz.model.entity.ApplicationUser;
 import org.klozevitz.service.interfaces.ApplicationUserService;
 import org.klozevitz.utils.CryptoTool;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,8 +17,8 @@ import javax.mail.internet.InternetAddress;
 
 import java.util.Optional;
 
-import static org.klozevitz.entity.enums.ApplicationUserState.BASIC_STATE;
-import static org.klozevitz.entity.enums.ApplicationUserState.WAIT_FOR_EMAIL_STATE;
+import static org.klozevitz.model.entity.enums.ApplicationUserState.BASIC_STATE;
+import static org.klozevitz.model.entity.enums.ApplicationUserState.WAIT_FOR_EMAIL_STATE;
 
 @Log4j
 @Service

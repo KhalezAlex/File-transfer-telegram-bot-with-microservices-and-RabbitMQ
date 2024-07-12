@@ -2,13 +2,13 @@ package org.klozevitz.service.implementations;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import org.klozevitz.dao.ApplicationUserRepository;
-import org.klozevitz.dao.RawDataRepository;
-import org.klozevitz.entity.ApplicationDocument;
-import org.klozevitz.entity.ApplicationPhoto;
-import org.klozevitz.entity.ApplicationUser;
+import org.klozevitz.model.repositories.ApplicationUserRepository;
+import org.klozevitz.repositories.RawDataRepository;
+import org.klozevitz.model.entity.ApplicationDocument;
+import org.klozevitz.model.entity.ApplicationPhoto;
+import org.klozevitz.model.entity.ApplicationUser;
 import org.klozevitz.entity.RawData;
-import org.klozevitz.entity.enums.ApplicationUserState;
+import org.klozevitz.model.entity.enums.ApplicationUserState;
 import org.klozevitz.exceptions.UploadFileException;
 import org.klozevitz.service.enums.LinkType;
 import org.klozevitz.service.enums.ServiceCommand;
@@ -23,8 +23,8 @@ import org.telegram.telegrambots.meta.api.objects.User;
 
 import java.util.Optional;
 
-import static org.klozevitz.entity.enums.ApplicationUserState.BASIC_STATE;
-import static org.klozevitz.entity.enums.ApplicationUserState.WAIT_FOR_EMAIL_STATE;
+import static org.klozevitz.model.entity.enums.ApplicationUserState.BASIC_STATE;
+import static org.klozevitz.model.entity.enums.ApplicationUserState.WAIT_FOR_EMAIL_STATE;
 import static org.klozevitz.service.enums.ServiceCommand.*;
 
 @Log4j
@@ -170,7 +170,7 @@ public class MainServiceImplementation implements MainService {
     }
 
     /**
-     * Pay attention that the USER on 175 is A TELEGRAM USER
+     * Pay attention that the USER on 178 is A TELEGRAM USER
      * persistent - object might have been in database
      * transient - object we are going to save to database
      */
@@ -178,9 +178,8 @@ public class MainServiceImplementation implements MainService {
         User telegramUser = update
                 .getMessage()
                 .getFrom();
-        Optional<ApplicationUser> persistentApplicationUser =
-                appUserRepo
-                        .findByTelegramUserId(telegramUser.getId());
+        var persistentApplicationUser =
+                appUserRepo.findByTelegramUserId(telegramUser.getId());
         if (persistentApplicationUser.isEmpty()) {
             ApplicationUser transientApplicationUser = ApplicationUser.builder()
                     .telegramUserId(telegramUser.getId())

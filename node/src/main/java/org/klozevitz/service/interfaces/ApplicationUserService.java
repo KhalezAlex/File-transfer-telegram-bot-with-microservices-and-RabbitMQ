@@ -1,6 +1,6 @@
 package org.klozevitz.service.interfaces;
 
-import org.klozevitz.entity.ApplicationUser;
+import org.klozevitz.model.entity.ApplicationUser;
 
 public interface ApplicationUserService {
     String registerUser(ApplicationUser appUser);

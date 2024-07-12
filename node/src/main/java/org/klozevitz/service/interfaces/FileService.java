@@ -1,7 +1,7 @@
 package org.klozevitz.service.interfaces;
 
-import org.klozevitz.entity.ApplicationDocument;
-import org.klozevitz.entity.ApplicationPhoto;
+import org.klozevitz.model.entity.ApplicationDocument;
+import org.klozevitz.model.entity.ApplicationPhoto;
 import org.klozevitz.service.enums.LinkType;
 import org.telegram.telegrambots.meta.api.objects.Message;
 

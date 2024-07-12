@@ -2,9 +2,9 @@ package org.klozevitz.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
-import org.klozevitz.entity.ApplicationDocument;
-import org.klozevitz.entity.ApplicationPhoto;
-import org.klozevitz.entity.BinaryContent;
+import org.klozevitz.model.entity.ApplicationDocument;
+import org.klozevitz.model.entity.ApplicationPhoto;
+import org.klozevitz.model.entity.BinaryContent;
 import org.klozevitz.service.interfaces.FileService;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.MediaType;

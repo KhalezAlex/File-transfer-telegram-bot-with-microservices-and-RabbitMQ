@@ -1,8 +1,8 @@
-package org.klozevitz.entity;
+package org.klozevitz.model.entity;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.klozevitz.entity.enums.ApplicationUserState;
+import org.klozevitz.model.entity.enums.ApplicationUserState;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

@@ -1,6 +1,6 @@
-package org.klozevitz.dao;
+package org.klozevitz.model.repositories;
 
-import org.klozevitz.entity.ApplicationPhoto;
+import org.klozevitz.model.entity.ApplicationPhoto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

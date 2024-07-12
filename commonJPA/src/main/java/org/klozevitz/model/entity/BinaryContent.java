@@ -1,4 +1,4 @@
-package org.klozevitz.entity;
+package org.klozevitz.model.entity;
 
 
 import lombok.*;

@@ -1,8 +1,8 @@
 package org.klozevitz.service.interfaces;
 
-import org.klozevitz.entity.ApplicationDocument;
-import org.klozevitz.entity.ApplicationPhoto;
-import org.klozevitz.entity.BinaryContent;
+import org.klozevitz.model.entity.ApplicationDocument;
+import org.klozevitz.model.entity.ApplicationPhoto;
+import org.klozevitz.model.entity.BinaryContent;
 import org.springframework.core.io.FileSystemResource;
 
 /**
