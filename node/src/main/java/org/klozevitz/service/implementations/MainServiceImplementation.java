@@ -21,8 +21,6 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 
-import java.util.Optional;
-
 import static org.klozevitz.model.entity.enums.ApplicationUserState.BASIC_STATE;
 import static org.klozevitz.model.entity.enums.ApplicationUserState.WAIT_FOR_EMAIL_STATE;
 import static org.klozevitz.service.enums.ServiceCommand.*;
@@ -51,7 +49,7 @@ public class MainServiceImplementation implements MainService {
         ApplicationUser applicationUser = findOrSaveApplicationUser(update);
         ApplicationUserState userState = applicationUser.getState();
         String command = update.getMessage().getText();
-        String output = "";
+        String output;
 
         ServiceCommand serviceCommand = ServiceCommand.fromValue(command);
         if (CANCEL.equals(serviceCommand)) {
@@ -62,7 +60,7 @@ public class MainServiceImplementation implements MainService {
              output = appUserService.setEmail(applicationUser, command);
         } else {
             log.error("Unknown user state - " + userState);
-            output = "Unknown error! Use \"/cancel\" to interrupt current process and then try again!";
+            output = "Unknown error! Use /cancel to abort current process and then try again!";
         }
 
         Long chatId = update.getMessage().getChatId();
@@ -83,7 +81,7 @@ public class MainServiceImplementation implements MainService {
         try {
             ApplicationDocument appDoc = fileService.processDoc(update.getMessage());
             String link = fileService.generateLink(appDoc.getId(), LinkType.GET_DOC);
-            message = "Document successfully uploaded! Download link: " + link;
+            message = "Document successfully uploaded! Download link:\n" + link;
         } catch (UploadFileException e) {
             log.error(e);
             message = "Upload failed... Try again later.";
@@ -106,7 +104,7 @@ public class MainServiceImplementation implements MainService {
         try {
             ApplicationPhoto appPhoto = fileService.processPhoto(update.getMessage());
             String link = fileService.generateLink(appPhoto.getId(), LinkType.GET_PHOTO);
-            message = "Photo successfully uploaded! Download link: " + link;
+            message = "Photo successfully uploaded! Download link:\n" + link;
         } catch (UploadFileException e) {
             log.error(e);
             message = "Upload failed... Try again later.";
@@ -123,7 +121,7 @@ public class MainServiceImplementation implements MainService {
             sendAnswer(error, chatId);
             return true;
         } else if (!BASIC_STATE.equals(state)) {
-            error = "Use \"/cancel\" to interrupt the current process and upload new file.";
+            error = "Use /cancel to abort the current process and upload new file.";
             sendAnswer(error, chatId);
             return true;
         }
@@ -144,9 +142,9 @@ public class MainServiceImplementation implements MainService {
         } else if (HELP.equals(serviceCommand)) {
             return help();
         } else if (START.equals(serviceCommand)) {
-            return "Hello!\nUse \"/help\" to explore available commands";
+            return "Hello!\nUse /help to explore available commands";
         } else {
-            return "Unknown command! \nUse \"/help\" to explore available commands";
+            return "Unknown command!\nUse /help to explore available commands";
         }
     }
 

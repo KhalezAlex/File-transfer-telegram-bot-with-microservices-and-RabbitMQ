@@ -37,6 +37,7 @@ public class ApplicationUserServiceImplementation implements ApplicationUserServ
             return "Confirmation email has been sent to your email address.\n" +
                     "Follow the instructions in that email.";
         }
+
         applicationUser.setState(WAIT_FOR_EMAIL_STATE);
         appUserRepo.save(applicationUser);
         return "Please enter your email address.";
@@ -48,7 +49,7 @@ public class ApplicationUserServiceImplementation implements ApplicationUserServ
             InternetAddress emailAddress = new InternetAddress(email);
             emailAddress.validate();
         } catch (AddressException e) {
-            return "Please enter the correct email address. Type \"/cancel\" to abort operation.";
+            return "Please enter the correct email address. Type /cancel to abort operation.";
         }
 
         Optional<ApplicationUser> userByEmail = appUserRepo.findByEmail(email);
@@ -72,15 +73,15 @@ public class ApplicationUserServiceImplementation implements ApplicationUserServ
                     "Follow the instructions in that email.";
         } else {
             return "This address is already in use. Choose another address. " +
-                    "Type \"/cancel\" to abort operation.";
+                    "Type /cancel to abort operation.";
         }
     }
 
     private ResponseEntity<String> sendRequestToMailService(String cryptoUserId, String email) {
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
+        var restTemplate = new RestTemplate();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        MailParameters mailParameters = MailParameters.builder()
+        var mailParameters = MailParameters.builder()
                 .id(cryptoUserId)
                 .emailTo(email)
                 .build();

@@ -22,13 +22,13 @@ public class ActivationController {
     @RequestMapping(method = RequestMethod.GET, value = "/activation")
     public ResponseEntity<?> activation(@RequestParam("id") String id) {
         return userActivationService.activation(id)
-                ? ResponseEntity.ok().body("Activation completed")
+                ? ResponseEntity.ok().body("Registration completed")
                 : ResponseEntity.internalServerError().build();
+    }
+}
 
 //        var result = userActivationService.activation(id);
 //        if (result) {
 //            return ResponseEntity.ok().body("Activation completed.");
 //        }
 //        return ResponseEntity.internalServerError().build();
-    }
-}
