@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) /register does not work properly&#10;2) refactoring">
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) /register does not work properly&#10;2) refactoring&#10;3) TODO: try to validate email by regex">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/dispatcher.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/dispatcher.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/node.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/node.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/MainServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/ActivationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/ActivationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mailService/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/UserActivationServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/UserActivationServiceImplementation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.NodeApp">
+  <component name="RunManager" selected="HTTP Request.scratch | #1">
     <configuration name="scratch | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/scratch.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -156,8 +156,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.NodeApp" />
         <item itemvalue="Spring Boot.RestService" />
+        <item itemvalue="Spring Boot.NodeApp" />
         <item itemvalue="Spring Boot.MailApp" />
         <item itemvalue="Spring Boot.DispatcherApp" />
         <item itemvalue="HTTP Request.scratch | #1" />
@@ -189,7 +189,8 @@
       <workItem from="1720695869532" duration="9080000" />
       <workItem from="1720728894607" duration="1000" />
       <workItem from="1720773111838" duration="571000" />
-      <workItem from="1720773872793" duration="11465000" />
+      <workItem from="1720773872793" duration="11772000" />
+      <workItem from="1720936899618" duration="2614000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -394,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720789331803</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="1) /register does not work properly&#10;2) refactoring&#10;3) TODO: try to validate email by regex">
+      <created>1720889028541</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1720889028541</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +421,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="1) Добавлены пользователи, сохранение в бд при первом обращении к чату" />
     <MESSAGE value="1) Рефакторинг" />
     <MESSAGE value="1) Добавлены базовые команды" />
     <MESSAGE value="1) Добавлена загрузка файлов из бота&#10;2) Добавлена возможность сохранения файлов в бд" />
@@ -438,7 +445,8 @@
     <MESSAGE value="1) refactoring" />
     <MESSAGE value="1) /register does not work properly" />
     <MESSAGE value="1) /register does not work properly&#10;2) refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) /register does not work properly&#10;2) refactoring" />
+    <MESSAGE value="1) /register does not work properly&#10;2) refactoring&#10;3) TODO: try to validate email by regex" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) /register does not work properly&#10;2) refactoring&#10;3) TODO: try to validate email by regex" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -469,34 +477,9 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/node/src/main/java/org/klozevitz/service/implementations/ApplicationUserServiceImplementation.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="16" />
+          <url>file://$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/UserActivationServiceImplementation.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

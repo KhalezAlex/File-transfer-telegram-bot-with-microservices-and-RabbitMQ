@@ -7,8 +7,6 @@ import org.klozevitz.service.interfaces.UserActivationService;
 import org.klozevitz.utils.CryptoTool;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class UserActivationServiceImplementation implements UserActivationService {

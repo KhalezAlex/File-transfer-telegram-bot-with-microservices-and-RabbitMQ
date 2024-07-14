@@ -17,4 +17,4 @@ spring:
 
 service:
   activation:
-    url: http://127.0.0.1:8005/user/activation?id={id}
+    url: http://127.0.0.1:8003/user/activation?id={id}
