@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) /register does not work properly&#10;2) refactoring&#10;3) TODO: try to validate email by regex">
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) account activation completed.&#10;mistake: different ports in mailService parameters and mailService properties in Node module">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/dispatcher.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/dispatcher.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/node.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/node.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mailService/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mailService/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/node/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/UserActivationServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/UserActivationServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/interfaces/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/interfaces/FileService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +188,9 @@
       <workItem from="1720728894607" duration="1000" />
       <workItem from="1720773111838" duration="571000" />
       <workItem from="1720773872793" duration="11772000" />
-      <workItem from="1720936899618" duration="2614000" />
+      <workItem from="1720936899618" duration="3028000" />
+      <workItem from="1721055443138" duration="43000" />
+      <workItem from="1721071067425" duration="2297000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -402,7 +402,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720889028541</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="1) account activation completed.&#10;mistake: different ports in mailService parameters and mailService properties in Node module">
+      <created>1720940503404</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1720940503404</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +428,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="1) Рефакторинг" />
     <MESSAGE value="1) Добавлены базовые команды" />
     <MESSAGE value="1) Добавлена загрузка файлов из бота&#10;2) Добавлена возможность сохранения файлов в бд" />
     <MESSAGE value="1) Добавлена загрузка фото из бота" />
@@ -446,7 +452,8 @@
     <MESSAGE value="1) /register does not work properly" />
     <MESSAGE value="1) /register does not work properly&#10;2) refactoring" />
     <MESSAGE value="1) /register does not work properly&#10;2) refactoring&#10;3) TODO: try to validate email by regex" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) /register does not work properly&#10;2) refactoring&#10;3) TODO: try to validate email by regex" />
+    <MESSAGE value="1) account activation completed.&#10;mistake: different ports in mailService parameters and mailService properties in Node module" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) account activation completed.&#10;mistake: different ports in mailService parameters and mailService properties in Node module" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

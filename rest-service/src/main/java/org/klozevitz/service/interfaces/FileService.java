@@ -16,8 +16,8 @@ import org.springframework.core.io.FileSystemResource;
 public interface FileService {
     ApplicationDocument getDocument(String hash);
     ApplicationPhoto getPhoto(String hash);
-    /**
-     * FileSystemResource- тип данных, необходимый для передачи контента в теле http-ответа
-     * */
-    FileSystemResource getFileSystemResource(BinaryContent binaryContent);
+//    /**
+//     * FileSystemResource- тип данных, необходимый для передачи контента в теле http-ответа
+//     * */
+//    FileSystemResource getFileSystemResource(BinaryContent binaryContent);
 }

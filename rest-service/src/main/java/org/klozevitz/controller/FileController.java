@@ -9,10 +9,12 @@ import org.klozevitz.service.interfaces.FileService;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+import static javax.servlet.http.HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
 
 @RestController
 @RequestMapping("/file")
@@ -22,55 +24,50 @@ public class FileController {
     private final FileService fileService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/get-doc")
-    public ResponseEntity<?> getDoc(@RequestParam("id") String id) {
+    public void getDoc(@RequestParam("id") String id, HttpServletResponse response) {
         //TODO добавить для формирования badRequest ControllerAdvice
         ApplicationDocument document = fileService.getDocument(id);
         if (document == null) {
-            return ResponseEntity.badRequest().build();
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return;
         }
+        response.setContentType(MediaType.parseMediaType(document.getMimeType()).toString());
+        // if we want the file to be downloaded and not to be just opened in web-browser
+        response.setHeader("Content-disposition", "attachment; filename=" + document.getDocName());
+        response.setStatus(HttpServletResponse.SC_OK);
 
-        BinaryContent binaryContent = document.getBinaryContent();
-        FileSystemResource fileSystemResource = fileService.getFileSystemResource(binaryContent);
-        if (fileSystemResource == null) {
-            // документ был найден в базе, но, по какой-то причине, мы не смогли его вернуть
-            return ResponseEntity.internalServerError().build();
+        var binaryContent = document.getBinaryContent();
+        try {
+            var out = response.getOutputStream();
+            out.write(binaryContent.getFileAsByteArray());
+            out.close();
+        } catch (IOException e) {
+            log.error(e);
+            response.setStatus(SC_INTERNAL_SERVER_ERROR);
         }
-
-        return ResponseEntity.ok()
-                .contentType(
-                        MediaType.parseMediaType(
-                                document.getMimeType()
-                        )
-                )
-                .header(
-                        "Content-disposition",
-                        "attachment; filename=" + document.getDocName()
-                )
-                .body(fileSystemResource);
     }
 
-    //TODO разобраться с тем, почему такое мелкое фото из базы приходит
     @RequestMapping(method = RequestMethod.GET, value = "/get-photo")
-    public ResponseEntity<?> getPhoto(@RequestParam("id") String id) {
+    public void getPhoto(@RequestParam("id") String id, HttpServletResponse response) {
         //TODO добавить для формирования badRequest ControllerAdvice
         ApplicationPhoto photo = fileService.getPhoto(id);
         if (photo == null) {
-            return ResponseEntity.badRequest().build();
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return;
         }
+        response.setContentType(MediaType.IMAGE_JPEG.toString());
+        // if we want the file to be downloaded and not to be just opened in web-browser
+        response.setHeader("Content-disposition", "attachment:");
+        response.setStatus(HttpServletResponse.SC_OK);
 
-        BinaryContent binaryContent = photo.getBinaryContent();
-        FileSystemResource fileSystemResource = fileService.getFileSystemResource(binaryContent);
-        if (fileSystemResource == null) {
-            // документ был найден в базе, но, по какой-то причине, мы не смогли его вернуть
-            return ResponseEntity.internalServerError().build();
+        var binaryContent = photo.getBinaryContent();
+        try {
+            var out = response.getOutputStream();
+            out.write(binaryContent.getFileAsByteArray());
+            out.close();
+        } catch (IOException e) {
+            log.error(e);
+            response.setStatus(SC_INTERNAL_SERVER_ERROR);
         }
-
-        // телеграмм для фото не хранит название файла, поэтому эту инфу убираем
-        // из Content-disposition
-        return ResponseEntity.ok()
-                .contentType(MediaType.IMAGE_JPEG)
-                .header("Content-disposition", "attachment;")
-                .body(fileSystemResource);
-
     }
 }
