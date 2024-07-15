@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="1) account activation completed.&#10;mistake: different ports in mailService parameters and mailService properties in Node module">
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="refactoring- temporary files in RAM problem solved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/FileServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/interfaces/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/interfaces/FileService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +188,7 @@
       <workItem from="1720773872793" duration="11772000" />
       <workItem from="1720936899618" duration="3028000" />
       <workItem from="1721055443138" duration="43000" />
-      <workItem from="1721071067425" duration="2297000" />
+      <workItem from="1721071067425" duration="3614000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -409,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720940503404</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="refactoring- temporary files in RAM problem solved">
+      <created>1721074494658</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1721074494658</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +433,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="1) Добавлены базовые команды" />
     <MESSAGE value="1) Добавлена загрузка файлов из бота&#10;2) Добавлена возможность сохранения файлов в бд" />
     <MESSAGE value="1) Добавлена загрузка фото из бота" />
     <MESSAGE value="1) тудушка" />
@@ -453,7 +457,8 @@
     <MESSAGE value="1) /register does not work properly&#10;2) refactoring" />
     <MESSAGE value="1) /register does not work properly&#10;2) refactoring&#10;3) TODO: try to validate email by regex" />
     <MESSAGE value="1) account activation completed.&#10;mistake: different ports in mailService parameters and mailService properties in Node module" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) account activation completed.&#10;mistake: different ports in mailService parameters and mailService properties in Node module" />
+    <MESSAGE value="refactoring- temporary files in RAM problem solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring- temporary files in RAM problem solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

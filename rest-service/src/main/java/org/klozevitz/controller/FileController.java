@@ -34,17 +34,9 @@ public class FileController {
         response.setContentType(MediaType.parseMediaType(document.getMimeType()).toString());
         // if we want the file to be downloaded and not to be just opened in web-browser
         response.setHeader("Content-disposition", "attachment; filename=" + document.getDocName());
-        response.setStatus(HttpServletResponse.SC_OK);
-
         var binaryContent = document.getBinaryContent();
-        try {
-            var out = response.getOutputStream();
-            out.write(binaryContent.getFileAsByteArray());
-            out.close();
-        } catch (IOException e) {
-            log.error(e);
-            response.setStatus(SC_INTERNAL_SERVER_ERROR);
-        }
+
+        response(response, binaryContent);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/get-photo")
@@ -58,9 +50,13 @@ public class FileController {
         response.setContentType(MediaType.IMAGE_JPEG.toString());
         // if we want the file to be downloaded and not to be just opened in web-browser
         response.setHeader("Content-disposition", "attachment:");
-        response.setStatus(HttpServletResponse.SC_OK);
-
         var binaryContent = photo.getBinaryContent();
+
+        response(response, binaryContent);
+    }
+
+    private void response(HttpServletResponse response, BinaryContent binaryContent) {
+        response.setStatus(HttpServletResponse.SC_OK);
         try {
             var out = response.getOutputStream();
             out.write(binaryContent.getFileAsByteArray());
