@@ -6,10 +6,11 @@ import org.klozevitz.model.entity.ApplicationDocument;
 import org.klozevitz.model.entity.ApplicationPhoto;
 import org.klozevitz.model.entity.BinaryContent;
 import org.klozevitz.service.interfaces.FileService;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -49,7 +50,7 @@ public class FileController {
         }
         response.setContentType(MediaType.IMAGE_JPEG.toString());
         // if we want the file to be downloaded and not to be just opened in web-browser
-        response.setHeader("Content-disposition", "attachment:");
+        response.setHeader("Content-disposition", "attachment;");
         var binaryContent = photo.getBinaryContent();
 
         response(response, binaryContent);

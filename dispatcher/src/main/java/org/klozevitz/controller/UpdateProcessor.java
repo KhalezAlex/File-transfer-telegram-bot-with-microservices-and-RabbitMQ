@@ -14,7 +14,7 @@ import static org.klozevitz.model.RabbitQueue.*;
 @Log4j
 @Component
 @RequiredArgsConstructor
-public class UpdateController {
+public class UpdateProcessor {
     private TelegramBot telegramBot;
     private final MessageUtil messageUtil;
     private final UpdateProducer updateProducer;

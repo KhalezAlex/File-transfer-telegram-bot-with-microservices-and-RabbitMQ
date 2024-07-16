@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="refactoring- temporary files in RAM problem solved">
+    <list default="true" id="c727ec6c-e396-44d2-87fa-93f8bb9ed25c" name="Changes" comment="refactoring- response method extracted from FileController.java methods">
+      <change afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/WebHookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/TelegramBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/TelegramBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/UpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/UpdateProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/service/implementations/AnswerConsumerImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/service/implementations/AnswerConsumerImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dispatcher/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dispatcher/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/dispatcher.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/dispatcher.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/node.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/node.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/FileController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -94,7 +101,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.scratch | #1">
+  <component name="RunManager" selected="Spring Boot.DispatcherApp">
     <configuration name="scratch | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/scratch.http" requestIdentifier="#1" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -153,8 +160,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.RestService" />
-        <item itemvalue="Spring Boot.NodeApp" />
         <item itemvalue="Spring Boot.MailApp" />
+        <item itemvalue="Spring Boot.NodeApp" />
         <item itemvalue="Spring Boot.DispatcherApp" />
         <item itemvalue="HTTP Request.scratch | #1" />
       </list>
@@ -188,7 +195,7 @@
       <workItem from="1720773872793" duration="11772000" />
       <workItem from="1720936899618" duration="3028000" />
       <workItem from="1721055443138" duration="43000" />
-      <workItem from="1721071067425" duration="3614000" />
+      <workItem from="1721071067425" duration="10815000" />
     </task>
     <task id="LOCAL-00001" summary="Бот для обмена документами с бд">
       <created>1718008292195</created>
@@ -414,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721074494658</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="refactoring- response method extracted from FileController.java methods">
+      <created>1721077492551</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1721077492551</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +447,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="1) Добавлена загрузка файлов из бота&#10;2) Добавлена возможность сохранения файлов в бд" />
     <MESSAGE value="1) Добавлена загрузка фото из бота" />
     <MESSAGE value="1) тудушка" />
     <MESSAGE value="1) рест-сервис по выгрузке данных из базы по айдишнику- фото и документы&#10;2) внимательно смотреть тудушки" />
@@ -458,7 +471,8 @@
     <MESSAGE value="1) /register does not work properly&#10;2) refactoring&#10;3) TODO: try to validate email by regex" />
     <MESSAGE value="1) account activation completed.&#10;mistake: different ports in mailService parameters and mailService properties in Node module" />
     <MESSAGE value="refactoring- temporary files in RAM problem solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring- temporary files in RAM problem solved" />
+    <MESSAGE value="refactoring- response method extracted from FileController.java methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring- response method extracted from FileController.java methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -492,6 +506,16 @@
           <url>file://$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/service/implementations/UserActivationServiceImplementation.java</url>
           <line>17</line>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/dispatcher/src/main/java/org/klozevitz/controller/WebHookController.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/rest-service/src/main/java/org/klozevitz/controller/FileController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
